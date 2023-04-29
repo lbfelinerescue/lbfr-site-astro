@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SingleMasthead from "../../components/SingleMasthead.astro";
+import SingleContentWrapper from "../../components/SingleContentWrapper.astro";
+import { slugs } from "../../data.mjs";
+const { cat } = Astro.params;
+
+export function getStaticPaths() {
+  return slugs;
+}
+
+---
+
+<Layout title="Cats!">
+        <SingleMasthead title="I am the blog" subtitle="woooo" />
+
+        <SingleContentWrapper>
+                <h3>It's {cat}!!</h3>
+
+                CAT CAT CAT CAT CAT CAT
+                CAT CAT CAT CAT CAT CAT
+        </SingleContentWrapper>
+</Layout>

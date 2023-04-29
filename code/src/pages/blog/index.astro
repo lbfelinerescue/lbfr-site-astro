@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SingleMasthead from "../../components/SingleMasthead.astro";
+import SingleContentWrapper from "../../components/SingleContentWrapper.astro";
+import { slugs } from "../../data.mjs";
+---
+
+<Layout title="Cats!">
+        <SingleMasthead title="I am the blog" subtitle="woooo" />
+
+        <SingleContentWrapper>
+                <h3>The cats!</h3>
+                <ul>
+                        {
+                                slugs.map((datum) => (
+                                        <li>
+                                                <a href={`/blog/${datum.params.cat}`}>
+                                                        {datum.params.cat}
+                                                </a>
+                                        </li>
+                                ))
+                        }
+                </ul>
+        </SingleContentWrapper>
+</Layout>
