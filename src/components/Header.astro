@@ -3,14 +3,14 @@ const navClassName = Astro.url.pathname === "/index.html" ? "alt" : "";
 ---
 <!-- Header -->
 <header id="header" class={navClassName}>
-    <h1><a href="index.html">LB Feline Rescue</a></h1>
+    <h1><a href="index.html"><span class="fas fa-cat"></span> LB Feline Rescue</a></h1>
     <nav id="nav">
         <ul>
             <li class="special">
                 <a href="#menu" class="menuToggle"><span>Menu</span></a>
                 <div id="menu">
                     <ul>
-                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/index.html">{Astro.url.pathname}</a></li>
                         <li><a href="/donate.html">Donate</a></li>
                         <li><a href="/adopt.html">Adopt</a></li>
                         <li><a href="/foster.html">Foster</a></li>
