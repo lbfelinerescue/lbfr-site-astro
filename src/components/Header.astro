@@ -1,8 +1,9 @@
 ---
+const navClassName = Astro.url.pathname === "/index.html" ? "alt" : "";
 ---
 <!-- Header -->
-<header id="header" class="alt">
-    <h1><a href="index.html">Spectral</a></h1>
+<header id="header" class={navClassName}>
+    <h1><a href="index.html">LB Feline Rescue</a></h1>
     <nav id="nav">
         <ul>
             <li class="special">
