@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:tina": "tinacms dev -c 'astro dev'",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "astro": "^2.3.2",
-    "@astrojs/mdx": "^0.19.0"
+    "@astrojs/mdx": "^0.19.0",
+    "@tinacms/cli": "^1.5.9"
   }
 }
