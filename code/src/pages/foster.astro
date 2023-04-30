@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Spotlight from "../components/Spotlight.astro";
+import SpotlightContainer from "../components/SpotlightContainer.astro";
+---
+<Layout title="Cats!">
+    <article id="main">
+        <header>
+            <h2>Foster ❤️</h2>
+            <p>Provide a safe space for cats awaiting adoption</p>
+        </header>
+        <SpotlightContainer>
+            <Spotlight
+                imageSrc="images/pic01.jpg"
+                header="Fostering a cat"
+                text="If you enjoy spending time with cats and are interested in helping homeless cats, then fostering one in your home may be a good option for you. You get to experience the joy of spending time with a pet. It teaches children compassion and the importance of treating animals with kindness."
+            />
+            <Spotlight
+                imageSrc="images/pic02.jpg"
+                header="Why foster?"
+                text="If you're interested in fostering as a prelude to adoption, you can use your fostering time to truly get to know a cat before you adopt him or her.<br/> You can have the satisfaction of knowing that you helped save a life.  Because of space limitations, we have to say 'no' to many cats that need our help. If you foster, you will play a vital part in helping a cat that otherwise would have been euthanized at a shelter."
+            />
+            <Spotlight
+                imageSrc="images/pic03.jpg"
+                header="Application"
+                text="If you have questions about fostering a cat in your home, please feel free to e-mail us for more information. If you feel that fostering a cat is for you, submit an application <a href='/Foster'>here</a> or click the button below. NEED TO ADD A PLACE FOR OPTIONAL BUTTONS"
+            />
+        </SpotlightContainer>
+    </article>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Spotlight from "../components/Spotlight.astro";
+import SpotlightContainer from "../components/SpotlightContainer.astro";
+---
+<Layout title="Cats!">
+    <article id="main">
+        <header>
+            <h2>Adopt ❤️</h2>
+            <p>Find your purr-fect match</p>
+        </header>
+        <SpotlightContainer>
+            <Spotlight
+                imageSrc="images/pic01.jpg"
+                header="Getting Started"
+                text="All of our adoptable kitties are happily living at the <a href='https://www.felinegoodsocialclub.com/'>Feline Good Social Club Lounge</a> in comfort and safety.  You can view them <a href='https://www.canva.com/design/DAEhG7_cWcg/50e9Bo-YecCHVsqyFTykyQ/view'>here</a>.<br/> The really great part of this new arrangement is that you can meet and spend time with our kitties in their 'Happy Place.'  You'll get to know exactly who each kitty is before you decide who to adopt."
+            />
+            <Spotlight
+                imageSrc="images/pic02.jpg"
+                header="Application"
+                text="If you're ready to adopt, you can start the process by filling out our online <a href='https://fs6.formsite.com/lbf5forms/form2/index.html'>Adoption Questionnaire</a>. This helps ensure that the cat you've chosen will fit in well with your household and family."
+            />
+            <Spotlight
+                imageSrc="images/pic03.jpg"
+                header="Details"
+                text="Every cat and kitten adopted through Long Beach Felines is vaccinated, spayed/neutered, dewormed, tested for Feline Leukemia & FIV and microchipped."
+            />
+        </SpotlightContainer>
+    </article>
+</Layout>
