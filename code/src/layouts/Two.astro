@@ -1,0 +1,38 @@
+---
+const { frontmatter } = Astro.props;
+
+import Header from '../components/Header.astro';
+import GenericBanner from '../components/GenericBanner.astro';
+import GenericContent from '../components/GenericContent.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import Scripts from '../components/Scripts.astro';
+---
+<!DOCTYPE HTML>
+<!--
+    Spectral by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>{frontmatter.title}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+            <Header />
+            <article id="main">
+            <GenericBanner bannerTitle={frontmatter.bannerTitle} bannerText={frontmatter.bannerText} />
+                <slot />
+            </article>
+            <CTA />
+            <Footer />
+        </div>
+        <Scripts />
+    </body>
+</html>
