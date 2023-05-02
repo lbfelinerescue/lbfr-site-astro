@@ -10,31 +10,34 @@
   inputs.nix-npm-buildpackage.url = "github:serokell/nix-npm-buildpackage";
   inputs.nix-npm-buildpackage.flake = false;
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-compat,
-    flake-utils,
-    npmlock2nix,
-    nix-npm-buildpackage,
-  } @ inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , flake-compat
+    , flake-utils
+    , npmlock2nix
+    , nix-npm-buildpackage
+    ,
+    } @ inputs:
     flake-utils.lib.eachDefaultSystem (
-      system: let
-
-        astro-shell = pkgs.npmlock2nix.v2.shell {
-          src = ./.;
-          nodejs = pkgs.nodejs;
-        };
-
+      system:
+      let
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
             (self: super: {
-              npmlock2nix = pkgs.callPackage npmlock2nix {};
+              npmlock2nix = pkgs.callPackage npmlock2nix { };
             })
           ];
         };
-      in {
+
+        astro-shell = pkgs.npmlock2nix.v2.shell {
+          src = ./.;
+          nodejs = pkgs.nodejs;
+          node_modules_mode = "copy";
+        };
+      in
+      {
         devShells.astro = astro-shell;
         devShells.default = pkgs.mkShell {
           packages = [

@@ -1,0 +1,12 @@
+---
+export interface Props {
+	bannerTitle: string;
+        bannerText: string;
+}
+
+const { bannerTitle, bannerText } = Astro.props;
+---
+<header>
+    <h2>{bannerTitle}</h2>
+    <p>{bannerText}</p>
+</header>
