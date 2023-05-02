@@ -1,0 +1,73 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>{"Cats!"}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+        <style>
+          .full-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; 
+            background-image: url("/images/404.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          }
+          h1 {
+            font-size: 5em;
+          }
+          h2 {
+            font-size: 1.5em;
+            text-align: center;
+            text-shadow: rgba(0,0,0,0.6) 5px 5px 5px;
+            backdrop-filter: blur(10px);
+          }
+        </style>
+    </head>
+    <body class="is-preload">
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+            <Header />
+            <div class="full-page">
+              <h1>404</h1>
+              <h2 id="pun">
+              </h2>
+            </div>
+          </div>
+          <script is:inline>
+            const puns = [
+                "Sorry, we're pawsitively lost!",
+                "Looks like this page got catnapped!",
+                "This page must have used up all of its nine lives!",
+                "We're feline pretty bad about this error!",
+                "Seems like this page is a bit cattywampus!",
+                "We apologize fur the inconvenience!",
+                "This page is purrmanently unavailable!",
+                "We're scratching our heads over this 404 error!",
+                "Sorry, we're not kitten around, this page doesn't exist!",
+                "Looks like this page was chasing its own tail and got lost!"
+            ];
+
+            function randomElem (array) {
+              return array[Math.floor(Math.random() * array.length)];
+            }
+
+            document.getElementById("pun").innerHTML = randomElem(puns);
+          </script>
+    </body>
+</html>
