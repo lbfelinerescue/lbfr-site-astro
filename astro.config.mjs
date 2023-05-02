@@ -15,6 +15,8 @@ export default defineConfig({
         collections: [
           {
             name: 'posts',
+            extension: 'mdx',
+            format: 'frontmatter',
             label: 'All Pages',
             folder: 'src/pages',
             create: true,
