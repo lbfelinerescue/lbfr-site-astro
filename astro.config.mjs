@@ -10,7 +10,7 @@ export default defineConfig({
         media_folder: "public/images",
         backend: {
           name: 'git-gateway',
-          branch: 'main',
+          branch: 'staging',
         },
         collections: [
           {
