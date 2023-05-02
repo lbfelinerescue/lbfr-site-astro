@@ -1,0 +1,29 @@
+---
+import CatCare from '../../layouts/CatCare.astro';
+import SpotlightWithLink from "../../components/SpotlightWithLink.astro";
+import SpotlightContainer from "../../components/SpotlightContainer.astro";
+
+import { getCollection } from 'astro:content';
+const blogEntries = await getCollection('catcare');
+
+function summarize (body) {
+  return body.split(' ').slice(0, 50).join(' ') + '...'
+}
+---
+<CatCare
+    title="Cats!"
+    bannerTitle="Cat Care"
+    bannerText="Feline Good: A Blog About Caring for Your Furry Friend"
+>
+    <SpotlightContainer>
+        {blogEntries.map(blogPostEntry => (
+            <SpotlightWithLink
+                imageSrc={blogPostEntry.data.image.src}
+                header={blogPostEntry.data.title}
+                href={`/catcare/${blogPostEntry.slug}`}
+            >
+            {summarize(blogPostEntry.body)}
+            </SpotlightWithLink>
+        ))}
+    </SpotlightContainer>
+</CatCare>
