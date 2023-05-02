@@ -2,7 +2,7 @@
 title: Feline Leukemia Virus (FeLV)
 publishedDate: 2023-04-20
 image:
-  src: '/public/images/pic02.jpg'
+  src: '/images/pic02.jpg'
 ---
 
 
