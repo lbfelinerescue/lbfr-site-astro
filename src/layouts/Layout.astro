@@ -2,12 +2,13 @@
 export interface Props {
 	title: string;
 }
-const { title } = Astro.props;
 
 import Header from '../components/Header.astro';
 import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
 import Scripts from '../components/Scripts.astro';
+
+import websitemeta from "../websitemeta"
 ---
 <!DOCTYPE HTML>
 <!--
@@ -17,12 +18,22 @@ import Scripts from '../components/Scripts.astro';
 -->
 <html>
     <head>
-        <title>{title}</title>
+        <title>{websitemeta.title}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="icon" href={websitemeta.favicon}>
         <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
     </head>
+    <style>
+      #page-wrapper {
+        background-image: url("/images/banner.jpg");
+        background-size: cover;
+        background-position-y: 10%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+    </style>
     <body class="is-preload">
         <!-- Page Wrapper -->
         <div id="page-wrapper">

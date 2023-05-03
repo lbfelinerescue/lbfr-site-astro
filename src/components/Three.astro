@@ -3,44 +3,29 @@ import Feature from "./Feature.astro";
 import FeatureContainer from "./FeatureContainer.astro";
 ---
 <!-- Three -->
+<style>
+  .flex-container {
+    display:flex;
+    flex-direction:row;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (max-width: 650px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+</style>
 <section id="three" class="wrapper style3 special">
     <div class="inner">
         <header class="major">
-                <h2>Accumsan mus tortor nunc aliquet</h2>
-                <p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-                fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
+          <h2>Hyla Morrow</h2>
+          <div class='flex-container'>
+            <img height="415px" width="315px" src="/images/home_tribute.png" alt="Hyla Morrow">
+            <p>Long Beach Felines wishes to acknowledge our never-ending gratitude to the Hyla Morrow Trust for its generous funding of our rescue and adoption efforts.<br />
+              Hyla was a talented actress, investor, and animal advocate, and the  embodiment of the American spirit. In fact, her professional success as a day-trader fueled her personal goal to  provide for homeless cats while working to advance their rights and protection.  She created a Trust that since her death in 2016 has benefitted over 60 organizations that help homeless cats find medical care and forever homes.</p>
+          </div>
         </header>
-        <FeatureContainer>
-            <Feature
-                className="icon fa-paper-plane"
-                header="Arcu accumsan"
-                text="Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat."
-            />
-            <Feature
-                className="icon solid fa-laptop"
-                header="Arcu accumsan"
-                text="Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat."
-            />
-            <Feature
-                className="icon solid fa-code"
-                header="Arcu accumsan"
-                text="Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat."
-            />
-            <Feature
-                className="icon solid fa-headphone-alt"
-                header="Arcu accumsan"
-                text="Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat."
-            />
-            <Feature
-                className="icon fa-heart"
-                header="Arcu accumsan"
-                text="Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat."
-            />
-            <Feature
-                className="icon fa-flag"
-                header="Arcu accumsan"
-                text="Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat."
-            />
-        </FeatureContainer>
     </div>
 </section>
