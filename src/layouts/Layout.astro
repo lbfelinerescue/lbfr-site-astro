@@ -4,9 +4,10 @@ export interface Props {
 }
 
 import Header from '../components/Header.astro';
-import CTA from '../components/CTA.astro';
+// import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
 import Scripts from '../components/Scripts.astro';
+import Contact from '../components/ContactUs.astro';
 
 import websitemeta from "../websitemeta"
 ---
@@ -39,7 +40,7 @@ import websitemeta from "../websitemeta"
         <div id="page-wrapper">
             <Header />
             <slot />
-            <CTA />
+            <Contact />
             <Footer />
         </div>
         <Scripts />
