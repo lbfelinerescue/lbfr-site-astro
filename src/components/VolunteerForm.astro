@@ -1,0 +1,139 @@
+<!-- Volunteer Form -->
+<style>
+  #main > header {
+    background-image: none;
+  }
+
+  .spotlight-form {
+    padding: 25px;
+    background-color: none;
+  }
+
+  #volunteer-header {
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+  }
+ 
+  #volunteer-disclaimer {
+    color: blue
+  }
+
+  #form-section {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: 800;
+  }
+ 
+  .col-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+ 
+  @media screen and (max-width: 700px) {
+  .col-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<article id="main">
+  <h2 id="volunteer-header">Volunteer Form</h2>
+  <section id="volunteer" class="spotlight-form">
+    <p id="volunteer-disclaimer">
+      Please take time to consider your intentions before submitting this application to volunteer!<br/>
+      8 out of 10 applicants end up not communicating with us when we try to reach them. If you're uncertain, please <a href="/index.html#main">send us a message</a> and we can clairfy your concerns before submitting this application.<br/>
+      We really want you to come on board with us - we need your help and hope that you decide to commit!
+    </p>
+    <div class="inner">
+        <form name="volunteer" method="POST" data-netlify="true">
+            <div class="row gtr-uniform">
+                <input type="hidden" name="subject" value="volunteer" />
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="name" id="name" value="" placeholder="Name*" required />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="email" name="email" id="email" value="" placeholder="Email*" required />
+                </div>
+                <div class="col-12">
+                  <textarea name="address" id="address" placeholder="Address*" rows="1" required></textarea>
+                </div>
+                <div class="col-6 col-12-xsmall">
+                  <input type="text" name="number" id="number" value="" placeholder=" Phone Number*" required />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="occupation" id="occupation" value="" placeholder="Occupation" />
+                </div>
+                <p id="form-section">
+                  PLEASE CHECK THE AREAS WHICH INTEREST YOU
+                </p>
+                <div class="col-grid">
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_1" value="Fundraising and development"><label for="RESULT_CheckBox-20_1">Fundraising and development</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_2" value="Grant writing"><label for="RESULT_CheckBox-20_2">Grant writing</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_0" value="Socializing cats at foster homes"><label for="RESULT_CheckBox-20_0">Socializing cats at foster homes</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_3" value="Medical Coordinator"><label for="RESULT_CheckBox-20_3">Medical Coordinator - must have vet medical knowledge</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_4" value="Transporting cats/supplies"><label for="RESULT_CheckBox-20_4">Transporting cats/supplies</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_5" value="Publicity and advertising"><label for="RESULT_CheckBox-20_5">Publicity and advertising</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_6" value="Digital photo and video production"><label for="RESULT_CheckBox-20_6">Digital photo and video production</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_7" value="Deliver and post advertising to vets/pet stores"><label for="RESULT_CheckBox-20_7">Deliver and post advertising to vets/pet stores</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_8" value="Volunteer coordination"><label for="RESULT_CheckBox-20_8">Volunteer coordination</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_9" value="Paperwork"><label for="RESULT_CheckBox-20_9">Paperwork - adoption folders, filing, etc.</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_10" value="Data entry"><label for="RESULT_CheckBox-20_10">Data entry</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_11" value="Facebook and other social media"><label for="RESULT_CheckBox-20_11">Facebook and other social media</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_12" value="Phones - point of contact"><label for="RESULT_CheckBox-20_12">Phones - point of contact</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_13" value="Fostering"><label for="RESULT_CheckBox-20_13">Fostering</label>
+                  </div>
+                </div>
+                <p id="form-section">
+                  ADDITIONAL INFORMATION
+                </p>
+                <div class="col-12">
+                  <textarea name="additional-interests" id="additional-interests" placeholder="Other areas of interest" rows="1" required></textarea>
+                </div>
+                <div class="col-12">
+                  <textarea name="limitations" id="limitations" placeholder="Please list any limitations" rows="1" required></textarea>
+                </div>
+                <div class="col-12">
+                  <textarea name="skills" id="skills" placeholder="Please list any additional skills" rows="1" required></textarea>
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Send" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                      </ul>
+                    </div>
+            </div>
+        </form>
+    </div>
+  </section>
+</article>
