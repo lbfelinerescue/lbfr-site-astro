@@ -384,7 +384,26 @@
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 	}
 
+        input[required] {
+          display: inline !important;
+        }
+
+        input[required]:invalid + span::after {
+          position: absolute;
+          content: "✖";
+          padding-left: 5px;
+          color: #8b0000;
+        }
+
+        input[required]:valid + span::after {
+          position: absolute;
+          content: "✓";
+          padding-left: 5px;
+          color: #009000;
+        }
+
 	input[type="text"],
+	input[type="tel"],
 	input[type="password"],
 	input[type="email"],
 	select,
@@ -429,6 +448,7 @@
 	}
 
 	input[type="text"],
+	input[type="tel"],
 	input[type="password"],
 	input[type="email"],
 	select {
@@ -1179,6 +1199,7 @@
 			}
 
 			input[type="text"],
+                        input[type="tel"],
 			input[type="password"],
 			input[type="email"],
 			select,
