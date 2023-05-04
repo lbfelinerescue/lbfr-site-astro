@@ -3,6 +3,8 @@ export interface Props {
 	title: string;
 }
 
+import '../styles/main.scss';
+
 import Header from '../components/Header.astro';
 import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
@@ -21,19 +23,9 @@ import websitemeta from "../websitemeta"
         <title>{websitemeta.title}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
         <link rel="icon" href={websitemeta.favicon}>
         <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
     </head>
-    <style>
-      #page-wrapper {
-        background-image: url("/images/banner.jpg");
-        background-size: cover;
-        background-position-y: 10%;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-      }
-    </style>
     <body class="is-preload">
         <!-- Page Wrapper -->
         <div id="page-wrapper">
@@ -45,3 +37,12 @@ import websitemeta from "../websitemeta"
         <Scripts />
     </body>
 </html>
+<style>
+  #page-wrapper {
+    background-image: url("/images/banner.jpg");
+    background-size: cover;
+    background-position-y: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+</style>
