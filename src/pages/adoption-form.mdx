@@ -1,61 +1,8 @@
 ---
 layout: '../layouts/Generic.astro'
 bannerTitle: Adoption Form
-bannerText:
+bannerText: adopt a cat
 ---
-<section id="adoption-form">
-    <div class="inner">
-        <form name="adoption" method="POST" data-netlify="true">
-            <div class="row gtr-uniform">
-                <input type="hidden" name="subject" value="adoption" />
-                <div class="col-12">
-                    <h2>Notice</h2>
-                    Completion of this document DOES NOT imply a guarantee of approval for adoption of any Long Beach Felines animals. This document is the property of Long Beach Felines. Please complete each question completely. Your questionnaire will be thoroughly reviewed after submission. We reserve the right to decline an application without explanation. Any discussions you've had with staff at the Feline Good Social Club Lounge are not binding on Long Beach Felines. This approval process may take a few days. We look forward to getting to know you.
-                    <input type="checkbox" name="acknowledge" id="acknowledge" />
-                    <label for="acknowledge">
-                        By checking this box, I acknowledge that I have read the above paragraph and approve the terms listed.
-                    </label>
-                </div>
+import AdoptionForm from "../components/AdoptionForm.astro";
 
-                <div class="col-12">
-                    <h2>About you</h2>
-                </div>
-                <div class="col-6 col-12-xsmall">
-                    <input type="text" name="applicant-name" id="applicant-name" value="" placeholder="Applicant Name" required />
-                    <span class="validity"></span>
-                </div>
-                <div class="col-6 col-12-xsmall">
-                    <input type="text" name="co-applicant-name" id="co-applicant-name" value="" placeholder="Co-Applicant Name" />
-                </div>
-                <div class="col-6 col-12-xsmall">
-                    <input type="text" name="applicant-occuption" id="applicant-occuption" value="" placeholder="Applicant Occupation" required />
-                    <span class="validity"></span>
-                </div>
-                <div class="col-6 col-12-xsmall">
-                    <input type="text" name="co-applicant-occuption" id="co-applicant-occuption" value="" placeholder="Co-Applicant Occupation" />
-                    <span class="validity"></span>
-                </div>
-                <div class="col-6 col-12-xsmall">
-                    <label for="applicant-home-phone">Enter a phone number:</label>
-                    <input type="tel" name="applicant-home-phone" id="applicant-home-phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" />
-                </div>
-
-
-
-
-
-
-                <div class="col-12">
-                    <textarea name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
-                    <span class="validity"></span>
-                </div>
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="submit" value="Send" class="primary" /></li>
-                        <li><input type="reset" value="Reset" /></li>
-                    </ul>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
+<AdoptionForm/>
