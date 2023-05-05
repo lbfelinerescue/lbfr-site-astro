@@ -388,14 +388,14 @@
           display: inline !important;
         }
 
-        input[required]:invalid + span::after {
+        input[required]:invalid ~ span::after {
           position: absolute;
           content: "✖";
           padding-left: 5px;
           color: #8b0000;
         }
 
-        input[required]:valid + span::after {
+        input[required]:valid ~ span::after {
           position: absolute;
           content: "✓";
           padding-left: 5px;

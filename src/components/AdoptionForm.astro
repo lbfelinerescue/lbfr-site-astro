@@ -20,6 +20,41 @@
         display: flex;
         align-items: center
     }
+
+    .specialInput ~ label {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 1em;
+      margin: auto 0;
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+      font-size: 1em;
+      transition: all 0.15s ease-out;
+    }
+
+    .specialInput {
+      height: 3.5em !important;
+      padding: 1em 1em 0em !important;
+    }
+
+    .specialInput:focus ~ label,
+    .specialInput:not([value=""]) ~ label
+    {
+      font-size: 12px;
+      transform: translate(0, -36%);
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    .specialInput:focus ~ label {
+      color: DarkSlateBlue !important;
+    }
+
+    .prel {
+      position: relative;
+    }
 </style>
 <section id="adoption-form">
     <div class="inner">
@@ -39,25 +74,30 @@
                     <h2>About you</h2>
                 </div>
                 <div class="applicant-info">
-                    <div class="col-6 col-12-xsmall">
-                        <input type="text" name="applicant-name" id="applicant-name" value="" placeholder="Applicant Name" required />
-                        <span class="validity" ></span>
-                    </div>
-                    <div class="col-6 col-12-xsmall">
-                        <input type="text" name="co-applicant-name" id="co-applicant-name" value="" placeholder="Co-Applicant Name" />
+                    <div class="col-6 col-12-xsmall prel">
+                        <input class="specialInput" type="text" name="applicant-name" id="applicant-name" value="" placeholder="" required />
+                        <label for="applicant-name">Applicant Name</label>
                         <span class="validity"></span>
                     </div>
-                    <div class="col-6 col-12-xsmall">
-                        <input type="text" name="applicant-occuption" id="applicant-occuption" value="" placeholder="Applicant Occupation" required />
+                    <div class="col-6 col-12-xsmall prel">
+                        <input class="specialInput" type="text" name="co-applicant-name" id="co-applicant-name" value="" placeholder="" />
+                        <label for="co-applicant-name">Co-Applicant Name</label>
                         <span class="validity"></span>
                     </div>
-                    <div class="col-6 col-12-xsmall">
-                        <input type="text" name="co-applicant-occuption" id="co-applicant-occuption" value="" placeholder="Co-Applicant Occupation" />
+                    <div class="col-6 col-12-xsmall prel">
+                        <input class="specialInput" type="text" name="applicant-occuption" id="applicant-occuption" value="" placeholder="" required />
+                        <label for="applicant-occupation">Applicant Occupation</label>
                         <span class="validity"></span>
                     </div>
-                    <div class="col-6 col-12-xsmall">
-                        <label for="applicant-home-phone">Enter a phone number:</label>
-                        <input type="tel" name="applicant-home-phone" id="applicant-home-phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" />
+                    <div class="col-6 col-12-xsmall prel">
+                        <input class="specialInput" type="text" name="co-applicant-occuption" id="co-applicant-occuption" value="" placeholder="" />
+                        <label for="co-applicant-occupation">Co-Applicant Occupation</label>
+                        <span class="validity"></span>
+                    </div>
+                    <div class="col-6 col-12-xsmall prel">
+                        <input class="specialInput" type="tel" name="applicant-home-phone" id="applicant-home-phone" value="" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" />
+                        <label for="applicant-home-phone">Phone Number</label>
+                        <span class="validity"></span>
                     </div>
                 </div>
 
@@ -68,7 +108,6 @@
 
                 <div class="col-12">
                     <textarea name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
-                    <span class="validity"></span>
                 </div>
                 <div class="col-12">
                     <ul class="actions">

@@ -1,0 +1,9 @@
+<script is:inline>
+inputs = document.getElementsByClassName("specialInput")
+
+Array.from(inputs).forEach (function(elem) {
+  elem.addEventListener('input', function() {
+    elem.setAttribute('value', elem.value);
+  })
+})
+</script>
