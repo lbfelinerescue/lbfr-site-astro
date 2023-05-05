@@ -8,6 +8,8 @@ export interface Props {
     inputValue?: string;
     inputPlaceholder?: string;
     inputRequired?: boolean;
+    inputMaxlength?: string;
+    inputPattern?: string;
     labelText?: string;
     spanClass?: string;
 }
@@ -21,6 +23,8 @@ const {
     inputValue = "",
     inputPlaceholder = "",
     inputRequired = false,
+    inputMaxlength = "",
+    inputPattern = "",
     labelText = "",
     spanClass = "validity",
 } = Astro.props;
@@ -81,6 +85,8 @@ const {
         value={inputValue}
         placeholder={inputPlaceholder}
         required={inputRequired}
+        maxlength={inputMaxlength}
+        pattern={inputPattern}
     />
     <label for={inputId}>{labelText}</label>
     <span class={spanClass}></span>
