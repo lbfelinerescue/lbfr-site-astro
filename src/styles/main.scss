@@ -384,18 +384,18 @@
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 	}
 
-        input[required] {
+        input[required="true"] {
           display: inline !important;
         }
 
-        input[required]:invalid ~ span::after {
+        input[required="true"]:invalid ~ span::after {
           position: absolute;
           content: "✖";
           padding-left: 5px;
           color: #8b0000;
         }
 
-        input[required]:valid ~ span::after {
+        input[required="true"]:valid ~ span::after {
           position: absolute;
           content: "✓";
           padding-left: 5px;
