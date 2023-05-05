@@ -76,47 +76,44 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
                 <div class="col-12">
                     <h2>About you</h2>
                 </div>
-                <div class="applicant-info">
+                <div class = "applicant-info">
                     <InputDynamicLabel
-                      inputType="text"
-                      inputName="applicant-name"
-                      inputId="applicant-name"
-                      inputRequired=true
-                      labelText="Applicant Name"
+                      inputType = "text"
+                      inputName = "applicant-name"
+                      inputId = "applicant-name"
+                      inputRequired = true
+                      labelText = "Applicant Name"
                     />
                     <InputDynamicLabel
-                      inputType="text"
-                      inputName="co-applicant-name"
-                      inputId="co-applicant-name"
-                      inputRequired=false
-                      labelText="Co-Applicant Name"
+                      inputType = "text"
+                      inputName = "co-applicant-name"
+                      inputId = "co-applicant-name"
+                      inputRequired = false
+                      labelText = "Co-Applicant Name"
                     />
                     <InputDynamicLabel
-                      inputType="text"
-                      inputName="applicant-occupation"
-                      inputId="applicant-occupation"
-                      inputRequired=true
-                      labelText="Applicant Occupation"
+                      inputType = "text"
+                      inputName = "applicant-occupation"
+                      inputId = "applicant-occupation"
+                      inputRequired = true
+                      labelText = "Applicant Occupation"
                     />
                     <InputDynamicLabel
-                      inputType="text"
-                      inputName="co-applicant-occupation"
-                      inputId="co-applicant-occupation"
-                      inputRequired=false
-                      labelText="Co-Applicant Occuption"
+                      inputType = "text"
+                      inputName = "co-applicant-occupation"
+                      inputId = "co-applicant-occupation"
+                      inputRequired = false
+                      labelText = "Co-Applicant Occuption"
                     />
-                    <!--
-                    <div class="col-6 col-12-xsmall prel">
-                        <input class="input-dynamic-label" type="text" name="test" id="test" value="" placeholder="" />
-                        <label for="test">TEST</label>
-                        <span class="validity"></span>
-                    </div>
-                    -->
-                    <div class="col-6 col-12-xsmall prel">
-                        <input class="input-dynamic-label" type="tel" name="applicant-home-phone" id="applicant-home-phone" value="" required="true" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" />
-                        <label for="applicant-home-phone">Phone Number</label>
-                        <span class="validity"></span>
-                    </div>
+                    <InputDynamicLabel
+                      inputType = "tel"
+                      inputName = "applicant-phone"
+                      inputId = "applicant-phone"
+                      inputRequired = true
+                      inputMaxlength = "12"
+                      inputPattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      labelText = "Phone Number"
+                    />
                 </div>
 
 
