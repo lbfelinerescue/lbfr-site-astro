@@ -1,5 +1,283 @@
 ---
-
+import InputDynamicLabel from './InputDynamicLabel.astro';
 ---
 <!-- Foster Application -->
-<h1>This is the foster form</h1>
+<style>
+  #foster-form {
+    background-color: white;
+  }
+  #foster-form h2 {
+    color: black;
+  }
+  #foster-form p {
+    color: black;
+  }
+  #foster-form h3 {
+    color: black;
+  }
+  #foster-form label {
+    color: black;
+  }
+
+
+  .spotlight-form {
+    padding: 25px;
+  }
+
+  #foster-header {
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+    padding-bottom: 10px;
+  }
+ 
+  #foster-disclaimer {
+    color: aliceblue
+  }
+
+  #form-section {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: 800;
+  }
+ 
+  .col-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .applicant-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+    
+  .current-residents {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .applicant-info {
+      grid-template-columns: 1fr;
+    }
+    .col-grid {
+      grid-template-columns: 1fr;
+    }
+    .current-residents {
+      grid-template-columns: 1fr;
+    }
+  }
+
+</style>
+<article id="foster-form">
+  <h2 id="foster-header">Foster Form</h2>
+  <section id="foster" class="spotlight-form">
+    <p id="foster-disclaimer" style="color: blue">
+      When you foster, you must keep your foster kitty indoors, safe, healthy and socialized! Please be prepared to continue fostering until your rescue is ready for adoption and eligible to move to the Feline Good Social Club adoption center.
+    </p>
+    <div class="inner">
+        <form name="volunteer" method="POST" data-netlify="true">
+            <div class="row gtr-uniform">
+                <input type="hidden" name="subject" value="volunteer" />
+                <h3 id="form-section">
+                  Personal Information:
+                </h3>
+                <div class="applicant-info">
+                  <InputDynamicLabel
+                    inputType="text"
+                    inputName="applicant-name"
+                    inputId="applicant-name"
+                    inputRequired=true
+                    labelText="Name:"
+                  />
+                  <InputDynamicLabel
+                    inputType="email"
+                    inputName="applicant-email"
+                    inputId="applicant-email"
+                    inputRequired=true
+                    labelText="Email:"
+                  />
+                  <InputDynamicLabel
+                    inputType="tel"
+                    inputName="applicant-phone"
+                    inputId="applicant-phone"
+                    inputPattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    inputRequired=true
+                    labelText="Phone Number:"
+                  />
+                  <InputDynamicLabel
+                    inputType="text"
+                    inputName="applicant-occupation"
+                    inputId="applicant-occupation"
+                    inputRequired=true
+                    labelText="Occupation:"
+                  />
+                </div>
+                <div style="padding-top: 10px; width: 100%">
+                  <InputDynamicLabel
+                    divClass="col-12 prel"
+                    inputType="text"
+                    inputName="applicant-address"
+                    inputId="applicant-address"
+                    inputRequired=true
+                    labelText="Applicant Address:"
+                  />
+                </div>
+                <h3 id="form-section">
+                  WHAT ARE YOU INTERESTED IN FOSTERING?
+                </h3>
+                <div class="col-grid">
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_1" value="Bottle Baby Kitten"><label for="RESULT_CheckBox-20_1">Bottle Baby Kitten (Long hours initially)</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_2" value="Orphan Kittens"><label for="RESULT_CheckBox-20_2">Orphan Kittens (Weaned)</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_0" value="Mom with Kittens"><label for="RESULT_CheckBox-20_0">Mom with Kittens</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_3" value="Teenagers"><label for="RESULT_CheckBox-20_3">Teenagers</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_4" value="Adults"><label for="RESULT_CheckBox-20_4">Adults</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_5" value="Special Needs - Medical"><label for="RESULT_CheckBox-20_5">Special Needs - Medical</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_6" value="Special Needs - Timid"><label for="RESULT_CheckBox-20_6">Special Needs - Timid</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="interests" id="RESULT_CheckBox-20_7" value="Seniors"><label for="RESULT_CheckBox-20_7">Seniors</label>
+                  </div>
+                </div>
+                <h3 id="form-section">
+                  ADDITIONAL INFORMATION:
+                </h3>
+                <div class="col-12">
+                  <p>Are animals allowed in your residence?</p>
+                  <input type="radio" name="Are animals allowed in your residence" id="Radio_checkbox_1" value="Yes"><label for="Radio_checkbox_1">Yes</label>
+                  <input type="radio" name="Are animals allowed in your residence" id="Radio_checkbox_2" value="No"><label for="Radio_checkbox_2">No</label>
+                </div>
+                <div style="width: 100%">
+                  <p>Number of animals currently living with you:</p>
+                  <div class="current-residents">
+                    <InputDynamicLabel
+                      inputType="text"
+                      inputName="current-pets-cats"
+                      inputId="current-pets-cats"
+                      inputRequired=false
+                      labelText="Cats:"
+                    />
+                    <InputDynamicLabel
+                      inputType="text"
+                      inputName="current-pets-dogs"
+                      inputId="current-pets-dogs"
+                      inputRequired=false
+                      labelText="Dogs:"
+                    />
+                    <InputDynamicLabel
+                      inputType="text"
+                      inputName="current-pets-other"
+                      inputId="current-pets-other"
+                      inputRequired=false
+                      labelText="Other:"
+                    />
+                  </div>
+                </div>
+                <div style="width: 100%">
+                  <p>Number of people currently living with you:</p>
+                  <div class="current-residents">
+                    <InputDynamicLabel
+                      inputType="text"
+                      inputName="current-people-adults"
+                      inputId="current-people-adults"
+                      inputRequired=false
+                      labelText="Adults:"
+                    />
+                    <InputDynamicLabel
+                      inputType="text"
+                      inputName="current-people-children"
+                      inputId="current-people-children"
+                      inputRequired=false
+                      labelText="Children:"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <p>Are your current pets indoor or outdoor animals?</p>
+                  <input type="radio" name="Current pets indoor or outdoor animals" id="Radio_checkbox_3" value="Indoor"><label for="Radio_checkbox_3">Indoor</label>
+                  <input type="radio" name="Current pets indoor or outdoor animals" id="Radio_checkbox_4" value="Outdoor"><label for="Radio_checkbox_4">Outdoor</label>
+                  <input type="radio" name="Current pets indoor or outdoor animals" id="Radio_checkbox_5" value="Both"><label for="Radio_checkbox_5">Both</label>
+                  <input type="radio" name="Current pets indoor or outdoor animals" id="Radio_checkbox_6" value="Not Applicable"><label for="Radio_checkbox_6">Not Applicable</label>
+                </div>
+                <div class="col-12">
+                  <p>Are your current pets vaccinations up to date?</p>
+                  <input type="radio" name="Vaccinations up to date" id="Radio_checkbox_7" value="Yes"><label for="Radio_checkbox_7">Yes</label>
+                  <input type="radio" name="Vaccinations up to date" id="Radio_checkbox_8" value="No"><label for="Radio_checkbox_8">No</label>
+                  <input type="radio" name="Vaccinations up to date" id="Radio_checkbox_9" value="Not Applicable"><label for="Radio_checkbox_9">Not Applicable</label>
+                </div>
+                <div class="col-12">
+                  <p>Are you able to provide food and supplies for the cat(s)?</p>
+                  <input type="radio" name="Can you provide food and supplies" id="Radio_checkbox_10" value="Yes"><label for="Radio_checkbox_10">Yes</label>
+                  <input type="radio" name="Can you provide food and supplies" id="Radio_checkbox_11" value="No"><label for="Radio_checkbox_11">No</label>
+                </div>
+                <div class="col-12">
+                  <p>Have you discussed fostering with other members of your household?</p>
+                  <input type="radio" name="Discussed fostering with other members of your household" id="Radio_checkbox_12" value="Yes"><label for="Radio_checkbox_12">Yes</label>
+                  <input type="radio" name="Discussed fostering with other members of your household" id="Radio_checkbox_13" value="No"><label for="Radio_checkbox_13">No</label>
+                </div>
+                <div class="col-12">
+                  <p>Do you have transportation?</p>
+                  <input type="radio" name="Do you have transportation" id="Radio_checkbox_14" value="Yes"><label for="Radio_checkbox_14">Yes</label>
+                  <input type="radio" name="Do you have transportation" id="Radio_checkbox_15" value="No"><label for="Radio_checkbox_15">No</label>
+                </div>
+                <div class="col-12">
+                  <p>Do you expect any significant changes in your life in the next 6 months?</p>
+                  <input type="radio" name="Life changes in the next 6 months" id="Radio_checkbox_16" value="Yes"><label for="Radio_checkbox_16">Yes</label>
+                  <input type="radio" name="Life changes in the next 6 months" id="Radio_checkbox_17" value="No"><label for="Radio_checkbox_17">No</label>
+                </div>
+                <div class="col-12">
+                  <p>Do you have a room to isolate fosters initially (10 to 14 days)?</p>
+                  <input type="radio" name="Room to isolate fosters" id="Radio_checkbox_18" value="Yes"><label for="Radio_checkbox_18">Yes</label>
+                  <input type="radio" name="Room to isolate fosters" id="Radio_checkbox_19" value="No"><label for="Radio_checkbox_19">No</label>
+                </div>
+                <div style="width: 100%">
+                  <InputDynamicLabel
+                    divClass="col-12 prel"
+                    inputType="text"
+                    inputName="previous-experience"
+                    inputId="previous-experience"
+                    inputRequired=false
+                    labelText="Previous rescue experience:"
+                  />
+                </div>
+                <div style="width: 100%">
+                  <InputDynamicLabel
+                    divClass="col-12 prel"
+                    inputType="text"
+                    inputName="Limitations"
+                    inputId="Limitations"
+                    inputRequired=false
+                    labelText="List any limitations:"
+                  />
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Submit" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                      </ul>
+                    </div>
+            </div>
+        </form>
+    </div>
+  </section>
+</article>
