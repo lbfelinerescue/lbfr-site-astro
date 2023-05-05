@@ -5,6 +5,7 @@ bannerText: Provide a safe space for cats awaiting adoption
 ---
 import Spotlight from "../components/Spotlight.astro";
 import SpotlightContainer from "../components/SpotlightContainer.astro";
+import FosterForm from "../components/FosterForm.astro"
 
 <SpotlightContainer>
     <Spotlight
@@ -26,8 +27,9 @@ import SpotlightContainer from "../components/SpotlightContainer.astro";
         imageSrc="/images/pic03.jpg"
         header="Application"
     >
-        If you have questions about fostering a cat in your home, please feel free to e-mail us for more information. If you feel that fostering a cat is for you, submit an application <a href='/Foster'>here</a> or click the button below.
+        If you have questions about fostering a cat in your home, please feel free to <a href='/index.html#main'>here</a> for more information. If you feel that fostering a cat is for you, submit an application <a href='/Foster'>here</a> or click the button below.
 
-        <a href="/Foster" className="button primary"> Foster </a>
+        <a href="/foster" className="button primary"> Foster </a>
     </Spotlight>
+    <FosterForm />
 </SpotlightContainer>
