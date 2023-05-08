@@ -384,18 +384,21 @@
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 	}
 
-        input[required="true"] {
+        input[required="true"],
+        textarea[required="true"] {
           display: inline !important;
         }
 
-        input[required="true"]:invalid ~ span::after {
+        input[required="true"]:invalid ~ span::after,
+        textarea[required="true"]:invalid ~ span::after {
           position: absolute;
           content: "✖";
           padding-left: 5px;
           color: #8b0000;
         }
 
-        input[required="true"]:valid ~ span::after {
+        input[required="true"]:valid ~ span::after,
+        textarea[required="true"]:valid ~ span::after {
           position: absolute;
           content: "✓";
           padding-left: 5px;

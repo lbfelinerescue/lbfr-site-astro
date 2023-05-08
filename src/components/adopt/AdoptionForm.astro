@@ -1,5 +1,6 @@
 ---
 import InputDynamicLabel from './InputDynamicLabel.astro';
+import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
 ---
 <!-- Adoption Form -->
 <style>
@@ -13,6 +14,12 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
         .applicant-info {
             grid-template-columns: 1fr;
         }
+    }
+    .one-col-full-width {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
     }
 </style>
 <section>
@@ -198,12 +205,14 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <h5>For renters:</h5>
-                  <textarea name="multi-unit-pet-rules" id="multi-unit-pet-rules" placeholder="" rows="6" required></textarea>
-                  <label for = "multi-unit-pet-rules">
-                    What are the rules about keeping pets?
-                  </label>
+                <div class = "one-col-full-width">
+                  <TextAreaDynamicLabel
+                    textareaName = "multi-unit-pet-rules"
+                    textareaId = "multi-unit-pet-rules"
+                    textareaRows = "6"
+                    textareaRequired = false
+                    labelText = "What are the rules about keeping pets?"
+                  />
                 </div>
 
                 <div class = "applicant-info">

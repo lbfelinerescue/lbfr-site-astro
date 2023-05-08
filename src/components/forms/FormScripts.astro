@@ -1,7 +1,15 @@
 <script is:inline>
-inputs = document.getElementsByClassName("input-dynamic-label")
+inputs = document.getElementsByClassName("input-dynamic-label");
 
 Array.from(inputs).forEach (function(elem) {
+  elem.addEventListener('input', function() {
+    elem.setAttribute('value', elem.value);
+  })
+})
+
+textareas = document.getElementsByClassName("textarea-dynamic-label");
+
+Array.from(textareas).forEach (function(elem) {
   elem.addEventListener('input', function() {
     elem.setAttribute('value', elem.value);
   })
@@ -11,8 +19,14 @@ Array.from(inputs).forEach (function(elem) {
 <script is:inline>
 function dynamicInputReset() {
   let inputs = document.getElementsByClassName("input-dynamic-label");
+  let textareas = document.getElementsByClassName("textarea-dynamic-label");
 
   Array.from(inputs).forEach( function(elem) {
+    elem.setAttribute('value', "");
+    elem.value = "";
+  });
+
+  Array.from(textareas).forEach( function(elem) {
     elem.setAttribute('value', "");
     elem.value = "";
   });
