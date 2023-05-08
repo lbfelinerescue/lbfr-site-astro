@@ -14,50 +14,6 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
             grid-template-columns: 1fr;
         }
     }
-    .col-12-xsmall {
-        display: flex;
-        flex-direction: row;
-    }
-    .validity {
-        width: 40px;
-        display: flex;
-        align-items: center
-    }
-
-    .input-dynamic-label ~ label {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 1em;
-      margin: auto 0;
-      display: flex;
-      align-items: center;
-      pointer-events: none;
-      font-size: 1em;
-      transition: all 0.15s ease-out;
-    }
-
-    .input-dynamic-label {
-      height: 3.5em !important;
-      padding: 1em 1em 0em !important;
-    }
-
-    .input-dynamic-label:focus ~ label,
-    .input-dynamic-label:not([value=""]) ~ label
-    {
-      font-size: 12px;
-      transform: translate(0, -36%);
-      padding-left: 4px;
-      padding-right: 4px;
-    }
-
-    .input-dynamic-label:focus ~ label {
-      color: DarkSlateBlue !important;
-    }
-
-    .prel {
-      position: relative;
-    }
 </style>
 <section>
     <div class="inner">
