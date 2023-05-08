@@ -181,7 +181,7 @@ import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
                         inputType = "text"
                         inputName = "housing-other-description"
                         inputId = "housing-other-description"
-                        inputRequired = true
+                        inputRequired = false
                         labelText = "Describe"
                       />
                     </div>
@@ -206,6 +206,7 @@ import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
                 </div>
 
                 <div class = "one-col-full-width">
+                  <h5>For renters:</h5>
                   <TextAreaDynamicLabel
                     textareaName = "multi-unit-pet-rules"
                     textareaId = "multi-unit-pet-rules"
@@ -220,14 +221,14 @@ import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
                     inputType = "text"
                     inputName = "landlord-name"
                     inputId = "landlord-name"
-                    inputRequired = true
+                    inputRequired = false
                     labelText = "Landlord Name"
                   />
                   <InputDynamicLabel
                     inputType = "tel"
                     inputName = "landlord-phone"
                     inputId = "landlord-phone"
-                    inputRequired = true
+                    inputRequired = false
                     labelText = "Landlord Phone Number"
                   />
                 </div>
