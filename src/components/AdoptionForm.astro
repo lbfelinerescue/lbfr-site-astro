@@ -224,11 +224,29 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
                     </div>
                   </div>
                 </div>
+                <div class="col-12">
+                  <h5>Do you own or rent?</h5>
+                  <div class = "applicant-info">
+                    <div class = "col-6">
+                      <input type="radio" name="own-or-rent" id="own" value="own" />
+                      <label for="own-or-rent">
+                        Own
+                      </label>
+                    </div>
+                    <div class = "col-6">
+                      <input type="radio" name="own-or-rent" id="rent" value="rent" />
+                      <label for="own-or-rent">
+                        Rent
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
                 <div class="col-12">
+                  <h5>For renters:</h5>
                   <textarea name="multi-unit-pet-rules" id="multi-unit-pet-rules" placeholder="" rows="6" required></textarea>
                   <label for = "multi-unit-pet-rules">
-                    For multi-unit locations, what are the rules about keeping pets?
+                    What are the rules about keeping pets?
                   </label>
                 </div>
 
