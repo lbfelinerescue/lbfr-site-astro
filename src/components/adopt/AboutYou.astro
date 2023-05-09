@@ -1,0 +1,78 @@
+---
+import InputDynamicLabel from './InputDynamicLabel.astro';
+---
+<style>
+    .applicant-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+    @media screen and (max-width: 700px) {
+        .applicant-info {
+            grid-template-columns: 1fr;
+        }
+    }
+    .one-col-full-width {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+</style>
+<div class="col-12">
+    <h2>About you</h2>
+</div>
+<div class = "applicant-info">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-name"
+      inputId = "applicant-name"
+      inputRequired = true
+      labelText = "Applicant Name"
+    />
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "co-applicant-name"
+      inputId = "co-applicant-name"
+      inputRequired = false
+      labelText = "Co-Applicant Name"
+    />
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-occupation"
+      inputId = "applicant-occupation"
+      inputRequired = true
+      labelText = "Applicant Occupation"
+    />
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "co-applicant-occupation"
+      inputId = "co-applicant-occupation"
+      inputRequired = false
+      labelText = "Co-Applicant Occuption"
+    />
+    <InputDynamicLabel
+      inputType = "email"
+      inputName = "applicant-email"
+      inputId = "applicant-email"
+      inputRequired = true
+      labelText = "Applicant Email"
+    />
+    <InputDynamicLabel
+      inputType = "email"
+      inputName = "co-applicant-email"
+      inputId = "co-applicant-email"
+      inputRequired = false
+      labelText = "Co-Applicant Email"
+    />
+    <InputDynamicLabel
+      inputType = "tel"
+      inputName = "applicant-phone"
+      inputId = "applicant-phone"
+      inputRequired = true
+      inputMaxlength = "12"
+      inputPattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}"
+      labelText = "Applicant Phone Number"
+    />
+</div>

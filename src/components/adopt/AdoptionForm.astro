@@ -1,30 +1,13 @@
 ---
 import InputDynamicLabel from './InputDynamicLabel.astro';
 import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
+import AboutYou from './AboutYou.astro';
+import ResidenceInfo from './ResidenceInfo.astro';
 import HomeDescription from './HomeDescription.astro';
 import OwnOrRent from './OwnOrRent.astro';
-import PetPermission from './PetPermission.astro';
+import ForRenters from './ForRenters.astro';
 ---
 <!-- Adoption Form -->
-<style>
-    .applicant-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        width: 100%;
-    }
-    @media screen and (max-width: 700px) {
-        .applicant-info {
-            grid-template-columns: 1fr;
-        }
-    }
-    .one-col-full-width {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        width: 100%;
-    }
-</style>
 <section>
     <div class="inner">
         <form id="adoption-form" name="adoption" method="POST" data-netlify="true">
@@ -39,145 +22,12 @@ import PetPermission from './PetPermission.astro';
                     </label>
                 </div>
 
-                <div class="col-12">
-                    <h2>About you</h2>
-                </div>
-                <div class = "applicant-info">
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "applicant-name"
-                      inputId = "applicant-name"
-                      inputRequired = true
-                      labelText = "Applicant Name"
-                    />
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "co-applicant-name"
-                      inputId = "co-applicant-name"
-                      inputRequired = false
-                      labelText = "Co-Applicant Name"
-                    />
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "applicant-occupation"
-                      inputId = "applicant-occupation"
-                      inputRequired = true
-                      labelText = "Applicant Occupation"
-                    />
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "co-applicant-occupation"
-                      inputId = "co-applicant-occupation"
-                      inputRequired = false
-                      labelText = "Co-Applicant Occuption"
-                    />
-                    <InputDynamicLabel
-                      inputType = "email"
-                      inputName = "applicant-email"
-                      inputId = "applicant-email"
-                      inputRequired = true
-                      labelText = "Applicant Email"
-                    />
-                    <InputDynamicLabel
-                      inputType = "email"
-                      inputName = "co-applicant-email"
-                      inputId = "co-applicant-email"
-                      inputRequired = false
-                      labelText = "Co-Applicant Email"
-                    />
-                    <InputDynamicLabel
-                      inputType = "tel"
-                      inputName = "applicant-phone"
-                      inputId = "applicant-phone"
-                      inputRequired = true
-                      inputMaxlength = "12"
-                      inputPattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                      labelText = "Applicant Phone Number"
-                    />
-                </div>
-                <div class="col-12">
-                    <h2>Residence Info</h2>
-                </div>
-                <div class = "applicant-info">
-                  <div class = "col-6">
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "applicant-address"
-                      inputId = "applicant-address"
-                      inputRequired = true
-                      labelText = "Street Address"
-                    />
-                  </div>
-                  <div class = "col-6">
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "applicant-city"
-                      inputId = "applicant-city"
-                      inputRequired = true
-                      labelText = "City"
-                    />
-                  </div>
-                  <div class = "col-6">
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "applicant-state"
-                      inputId = "applicant-state"
-                      inputRequired = true
-                      labelText = "State"
-                    />
-                  </div>
-                  <div class = "col-6">
-                    <InputDynamicLabel
-                      inputType = "text"
-                      inputName = "applicant-zip-code"
-                      inputId = "applicant-zip-code"
-                      inputRequired = true
-                      labelText = "Zip Code"
-                    />
-                  </div>
-                </div>
-                <div class = "col-12">
-                  <InputDynamicLabel
-                    inputType = "text"
-                    inputName = "how-long-at-address"
-                    inputId = "how-long-at-address"
-                    inputRequired = true
-                    labelText = "How long have you lived at this address?"
-                  />
-                </div>
-
+                <AboutYou />
+                <ResidenceInfo />
                 <HomeDescription />
                 <OwnOrRent />
+                <ForRenters />
 
-                <div class = "one-col-full-width">
-                  <h5>For renters:</h5>
-                  <TextAreaDynamicLabel
-                    textareaName = "multi-unit-pet-rules"
-                    textareaId = "multi-unit-pet-rules"
-                    textareaRows = "6"
-                    textareaRequired = false
-                    labelText = "What are the rules about keeping pets?"
-                  />
-                </div>
-
-                <div class = "applicant-info">
-                  <InputDynamicLabel
-                    inputType = "text"
-                    inputName = "landlord-name"
-                    inputId = "landlord-name"
-                    inputRequired = false
-                    labelText = "Landlord Name"
-                  />
-                  <InputDynamicLabel
-                    inputType = "tel"
-                    inputName = "landlord-phone"
-                    inputId = "landlord-phone"
-                    inputRequired = false
-                    labelText = "Landlord Phone Number"
-                  />
-                </div>
-
-                <PetPermission />
 
                 <div class="col-12">
                     <ul class="actions">

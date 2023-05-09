@@ -1,0 +1,72 @@
+---
+import InputDynamicLabel from './InputDynamicLabel.astro';
+---
+<style>
+    .applicant-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+    @media screen and (max-width: 700px) {
+        .applicant-info {
+            grid-template-columns: 1fr;
+        }
+    }
+    .one-col-full-width {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+</style>
+<div class="col-12">
+    <h2>Residence Info</h2>
+</div>
+<div class = "applicant-info">
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-address"
+      inputId = "applicant-address"
+      inputRequired = true
+      labelText = "Street Address"
+    />
+  </div>
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-city"
+      inputId = "applicant-city"
+      inputRequired = true
+      labelText = "City"
+    />
+  </div>
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-state"
+      inputId = "applicant-state"
+      inputRequired = true
+      labelText = "State"
+    />
+  </div>
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-zip-code"
+      inputId = "applicant-zip-code"
+      inputRequired = true
+      labelText = "Zip Code"
+    />
+  </div>
+</div>
+<div class = "col-12">
+  <InputDynamicLabel
+    inputType = "text"
+    inputName = "how-long-at-address"
+    inputId = "how-long-at-address"
+    inputRequired = true
+    labelText = "How long have you lived at this address?"
+  />
+</div>
