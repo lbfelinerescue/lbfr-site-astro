@@ -1,8 +1,8 @@
 ---
-import InputDynamicLabel from './InputDynamicLabel.astro';
-import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
 import AboutYou from './aboutyou/AboutYou.astro';
 import ResidenceInfo from './residenceinfo/ResidenceInfo.astro';
+import CatCare from './catcare/CatCare.astro';
+import CheckboxValidation from '../forms/CheckboxValidation.astro';
 ---
 <!-- Adoption Form -->
 <section>
@@ -21,7 +21,7 @@ import ResidenceInfo from './residenceinfo/ResidenceInfo.astro';
 
                 <AboutYou />
                 <ResidenceInfo />
-
+                <CatCare />
 
                 <div class="col-12">
                     <ul class="actions">
@@ -33,3 +33,4 @@ import ResidenceInfo from './residenceinfo/ResidenceInfo.astro';
         </form>
     </div>
 </section>
+<CheckboxValidation />

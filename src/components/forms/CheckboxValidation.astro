@@ -1,0 +1,11 @@
+<script is:inline src="/assets/js/jquery.min.js"></script>
+<script is:inline>
+function validateCheckbox (name) {
+    $cbx_group = $(`input:checkbox[name=${name}]`);
+
+    $cbx_group.prop('required', true);
+    if($cbx_group.is(":checked")){
+        $cbx_group.prop('required', false);
+    }
+}
+</script>

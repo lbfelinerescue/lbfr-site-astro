@@ -1,0 +1,123 @@
+---
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+import Radio from '../lib/Radio.astro';
+import Checkbox from '../lib/Checkbox.astro';
+
+const catsleep = {
+    name: "where-cat-sleep",
+    legend: "Where will your cat sleep at night?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "cat-sleep-cat-bed": {
+          value: "cat bed",
+          text: "Cat bed"
+        },
+        "cat-sleep-living-room": {
+          value: "living room",
+          text: "Living room"
+        },
+        "cat-sleep-garage": {
+          value: "garage",
+          text: "Garage"
+        },
+        "cat-sleep-my-bedroom": {
+          value: "my bedroom",
+          text: "My bedroom"
+        },
+        "cat-sleep-anywhere": {
+          value: "anywhere",
+          text: "Anywhere"
+        },
+        "cat-sleep-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
+
+const catsleepOnchange = `validateCheckbox('${catsleep.name}')`;
+
+const furniture = {
+    name: "allowed-furniture",
+    legend: "Will your pet be allowed on the furniture?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "allowed-furniture-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "allowed-furniture-no": {
+          value: "no",
+          text: "No"
+        },
+        "allowed-furniture-sometimes": {
+          value: "sometimes",
+          text: "Sometimes"
+        },
+    },
+};
+---
+<div class = "one-col-full-width">
+  <TextAreaDynamicLabel
+    textareaName = "cat-off-limits"
+    textareaId = "cat-off-limits"
+    textareaRows = "6"
+    textareaRequired = false
+    labelText = "What areas of the house will be off limits to the cat?"
+  />
+</div>
+
+<div class="one-col-full-width">
+  <fieldset required={catsleep.required}>
+    <legend>{catsleep.legend}<span class={catsleep.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(catsleep.entries).map((key) =>
+        <Checkbox
+          divClass = {catsleep.divClass}
+          checkboxName = {catsleep.name}
+          checkboxId = {key}
+          checkboxValue = {catsleep.entries[key].value}
+          checkboxRequired = {catsleep.required}
+          checkboxOnchange = {catsleepOnchange}
+          labelText = {catsleep.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "catsleep-describe"
+      textareaId = "catsleep-describe"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "Please elaborate"
+    />
+  </fieldset>
+</div>
+
+<div class="one-col-full-width">
+  <fieldset required={furniture.required}>
+    <legend>{furniture.legend}<span class={furniture.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(furniture.entries).map((key) =>
+        <Radio
+          divClass = {furniture.divClass}
+          radioName = {furniture.name}
+          radioId = {key}
+          radioValue = {furniture.entries[key].value}
+          radioRequired = {furniture.required}
+          labelText = {furniture.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "describe-furniture-allowed"
+      textareaId = "describe-furniture-allowed"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "Please elaborate."
+    />
+  </fieldset>
+</div>
