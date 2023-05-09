@@ -20,6 +20,7 @@ Array.from(textareas).forEach (function(elem) {
 function dynamicInputReset() {
   let inputs = document.getElementsByClassName("input-dynamic-label");
   let textareas = document.getElementsByClassName("textarea-dynamic-label");
+  let radios = document.getElementsByClassName("radio-dynamic-label");
 
   Array.from(inputs).forEach( function(elem) {
     elem.setAttribute('value', "");
@@ -29,6 +30,10 @@ function dynamicInputReset() {
   Array.from(textareas).forEach( function(elem) {
     elem.setAttribute('value', "");
     elem.value = "";
+  });
+
+  Array.from(radios).forEach( function(elem) {
+    elem.checked = false;
   });
 }
 </script>
