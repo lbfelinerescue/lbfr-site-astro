@@ -20,13 +20,23 @@ const {
 } = Astro.props;
 ---
 <div class={divClass}>
-    <input
-        type="radio"
-        class={radioClass}
-        name={radioName}
-        id={radioId}
-        value={radioValue}
-        required={radioRequired}
-    />
+    {radioRequired === "true" ?
+        <input
+            type="radio"
+            class={radioClass}
+            name={radioName}
+            id={radioId}
+            value={radioValue}
+            required
+        />
+    :
+        <input
+            type="radio"
+            class={radioClass}
+            name={radioName}
+            id={radioId}
+            value={radioValue}
+        />
+    }
     <label for={radioId}>{labelText}</label>
 </div>
