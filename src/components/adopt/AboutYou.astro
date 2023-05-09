@@ -1,29 +1,10 @@
 ---
 import InputDynamicLabel from './InputDynamicLabel.astro';
 ---
-<style>
-    .applicant-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        width: 100%;
-    }
-    @media screen and (max-width: 700px) {
-        .applicant-info {
-            grid-template-columns: 1fr;
-        }
-    }
-    .one-col-full-width {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        width: 100%;
-    }
-</style>
 <div class="col-12">
     <h2>About you</h2>
 </div>
-<div class = "applicant-info">
+<div class = "two-col-full-width">
     <InputDynamicLabel
       inputType = "text"
       inputName = "applicant-name"

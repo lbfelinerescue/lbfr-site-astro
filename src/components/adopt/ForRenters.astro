@@ -3,25 +3,6 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
 import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
 import PetPermission from './PetPermission.astro';
 ---
-<style>
-    .applicant-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        width: 100%;
-    }
-    @media screen and (max-width: 700px) {
-        .applicant-info {
-            grid-template-columns: 1fr;
-        }
-    }
-    .one-col-full-width {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        width: 100%;
-    }
-</style>
 <div class = "one-col-full-width">
   <h5>For renters:</h5>
   <TextAreaDynamicLabel
@@ -33,7 +14,7 @@ import PetPermission from './PetPermission.astro';
   />
 </div>
 
-<div class = "applicant-info">
+<div class = "two-col-full-width">
   <InputDynamicLabel
     inputType = "text"
     inputName = "landlord-name"
