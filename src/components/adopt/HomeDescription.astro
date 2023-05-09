@@ -1,9 +1,10 @@
 ---
 import Radio from './Radio.astro';
+import InputDynamicLabel from './InputDynamicLabel.astro';
 
 const homes = {
     name: "type-of-home",
-    legend: "Describe your home",
+    legend: "What style home is your residence?",
     divClass: "col-6",
     required: "true",
     spanClass: "validity",
@@ -88,5 +89,12 @@ const homes = {
         />
       )}
     </div>
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "describe-other-residence"
+      inputId = "describe-other-residence"
+      inputRequired = false
+      labelText = "If other, please describe."
+    />
   </fieldset>
 </div>
