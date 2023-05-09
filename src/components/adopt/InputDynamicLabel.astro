@@ -77,17 +77,30 @@ const {
     }
 </style>
 <div class={divClass}>
-    <input
-        class={inputClass}
-        type={inputType}
-        name={inputName}
-        id={inputId}
-        value={inputValue}
-        placeholder={inputPlaceholder}
-        required={inputRequired}
-        maxlength={inputMaxlength}
-        pattern={inputPattern}
-    />
+    {inputRequired === "true" ?
+        <input
+            class:list={[inputClass, {required: inputRequired==="true"}]}
+            type={inputType}
+            name={inputName}
+            id={inputId}
+            value={inputValue}
+            placeholder={inputPlaceholder}
+            required
+            maxlength={inputMaxlength}
+            pattern={inputPattern}
+        />
+    :
+        <input
+            class:list={[inputClass, {required: inputRequired==="true"}]}
+            type={inputType}
+            name={inputName}
+            id={inputId}
+            value={inputValue}
+            placeholder={inputPlaceholder}
+            maxlength={inputMaxlength}
+            pattern={inputPattern}
+        />
+    }
     <label for={inputId}>{labelText}</label>
     <span class={spanClass}></span>
 </div>

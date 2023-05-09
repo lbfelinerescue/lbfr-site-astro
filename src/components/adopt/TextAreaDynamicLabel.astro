@@ -73,19 +73,34 @@ const {
     }
 </style>
 <div class={divClass}>
-    <textarea
-        class={textareaClass}
-        name={textareaName}
-        id={textareaId}
-        value={textareaValue}
-        rows={textareaRows}
-        cols={textareaCols}
-        placeholder={textareaPlaceholder}
-        required={textareaRequired}
-        maxlength={textareaMaxlength}
-        minlength={textareaMinlength}
-        pattern={textareaPattern}
-    />
+    {textareaRequired === "true" ?
+        <textarea
+            class={textareaClass}
+            name={textareaName}
+            id={textareaId}
+            value={textareaValue}
+            rows={textareaRows}
+            cols={textareaCols}
+            placeholder={textareaPlaceholder}
+            required
+            maxlength={textareaMaxlength}
+            minlength={textareaMinlength}
+            pattern={textareaPattern}
+        />
+    :
+        <textarea
+            class={textareaClass}
+            name={textareaName}
+            id={textareaId}
+            value={textareaValue}
+            rows={textareaRows}
+            cols={textareaCols}
+            placeholder={textareaPlaceholder}
+            maxlength={textareaMaxlength}
+            minlength={textareaMinlength}
+            pattern={textareaPattern}
+        />
+    }
     <label for={textareaId}>{labelText}</label>
     <span class={spanClass}></span>
 </div>
