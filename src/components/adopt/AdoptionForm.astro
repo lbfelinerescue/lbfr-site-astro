@@ -3,6 +3,7 @@ import InputDynamicLabel from './InputDynamicLabel.astro';
 import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
 import HomeDescription from './HomeDescription.astro';
 import OwnOrRent from './OwnOrRent.astro';
+import PetPermission from './PetPermission.astro';
 ---
 <!-- Adoption Form -->
 <style>
@@ -176,23 +177,7 @@ import OwnOrRent from './OwnOrRent.astro';
                   />
                 </div>
 
-                <div class="col-12">
-                  <h5>Do you have your landlord's permission to have a pet?</h5>
-                  <div class = "applicant-info">
-                    <div class = "col-6">
-                      <input type="radio" name="pet-permission" id="pet-permission-yes" value="yes" />
-                      <label for="pet-permission-yes">
-                        Yes
-                      </label>
-                    </div>
-                    <div class = "col-6">
-                      <input type="radio" name="pet-permission" id="pet-permission-no" value="no" />
-                      <label for="pet-permission-no">
-                        No
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                <PetPermission />
 
                 <div class="col-12">
                     <ul class="actions">
