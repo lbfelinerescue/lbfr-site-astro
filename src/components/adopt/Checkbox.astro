@@ -1,0 +1,45 @@
+---
+export interface Props {
+    divClass?: string;
+    checkboxClass?: string;
+    checkboxName: string;
+    checkboxId: string;
+    checkboxValue?: string;
+    checkboxRequired?: string;
+    checkboxOnchange: string;
+    labelText?: string;
+}
+
+const {
+    divClass = "col-6",
+    checkboxClass = "checkbox-dynamic-label",
+    checkboxName,
+    checkboxId,
+    checkboxValue = "",
+    checkboxRequired = "false",
+    checkboxOnchange,
+    labelText = "",
+} = Astro.props;
+---
+<div class={divClass}>
+    {checkboxRequired === "true" ?
+        <input
+            type="checkbox"
+            class={checkboxClass}
+            name={checkboxName}
+            id={checkboxId}
+            value={checkboxValue}
+            required
+            onchange={checkboxOnchange}
+        />
+    :
+        <input
+            type="checkbox"
+            class={checkboxClass}
+            name={checkboxName}
+            id={checkboxId}
+            value={checkboxValue}
+        />
+    }
+    <label for={checkboxId}>{labelText}</label>
+</div>
