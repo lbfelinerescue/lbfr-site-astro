@@ -2,6 +2,7 @@
 import InputDynamicLabel from './InputDynamicLabel.astro';
 import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
 import HomeDescription from './HomeDescription.astro';
+import OwnOrRent from './OwnOrRent.astro';
 ---
 <!-- Adoption Form -->
 <style>
@@ -145,24 +146,7 @@ import HomeDescription from './HomeDescription.astro';
                 </div>
 
                 <HomeDescription />
-
-                <div class="col-12">
-                  <h5>Do you own or rent?</h5>
-                  <div class = "applicant-info">
-                    <div class = "col-6">
-                      <input type="radio" name="own-or-rent" id="own" value="own" />
-                      <label for="own-or-rent">
-                        Own
-                      </label>
-                    </div>
-                    <div class = "col-6">
-                      <input type="radio" name="own-or-rent" id="rent" value="rent" />
-                      <label for="own-or-rent">
-                        Rent
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                <OwnOrRent />
 
                 <div class = "one-col-full-width">
                   <h5>For renters:</h5>

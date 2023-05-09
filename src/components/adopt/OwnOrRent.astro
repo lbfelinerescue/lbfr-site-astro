@@ -1,32 +1,20 @@
 ---
 import Radio from './Radio.astro';
 
-const homes = {
-    name: "type-of-home",
-    legend: "Describe your home",
+const ownrent = {
+    name: "own-or-rent",
+    legend: "Do you own or rent?",
     divClass: "col-6",
     required: "true",
     spanClass: "validity",
     entries: {
-        "single-family-home": {
-          value: "single family home",
-          text: "Single-Family Home"
+        "own": {
+          value: "own",
+          text: "Own"
         },
-        "condo-townhome": {
-          value: "condo/townhome",
-          text: "Condo/Townhome"
-        },
-        "apartment": {
-          value: "apartment",
-          text: "Apartment"
-        },
-        "rent-room": {
-          value: "rent-room",
-          text: "Rent Room"
-        },
-        "housing-other": {
-          value: "housing-other",
-          text: "Other"
+        "rent": {
+          value: "rent",
+          text: "Rent"
         },
     },
 };
@@ -74,17 +62,17 @@ const homes = {
     }
 </style>
 <div class="col-12">
-  <fieldset required={homes.required}>
-    <legend>{homes.legend}<span class={homes.spanClass}></span></legend>
+  <fieldset required={ownrent.required}>
+    <legend>{ownrent.legend}<span class={ownrent.spanClass}></span></legend>
     <div class = "two-col-full-width">
-      {Object.keys(homes.entries).map((key) =>
+      {Object.keys(ownrent.entries).map((key) =>
         <Radio
-          divClass = {homes.divClass}
-          radioName = {homes.name}
+          divClass = {ownrent.divClass}
+          radioName = {ownrent.name}
           radioId = {key}
-          radioValue = {homes.entries[key].value}
-          radioRequired = {homes.required}
-          labelText = {homes.entries[key].text}
+          radioValue = {ownrent.entries[key].value}
+          radioRequired = {ownrent.required}
+          labelText = {ownrent.entries[key].text}
         />
       )}
     </div>
