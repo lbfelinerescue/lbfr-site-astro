@@ -1,6 +1,7 @@
 ---
 import InputDynamicLabel from './InputDynamicLabel.astro';
 import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
+import HomeDescription from './HomeDescription.astro';
 ---
 <!-- Adoption Form -->
 <style>
@@ -143,50 +144,8 @@ import TextAreaDynamicLabel from './TextAreaDynamicLabel.astro';
                   />
                 </div>
 
-                <div class="col-12">
-                  <h5>Describe your home</h5>
-                  <div class = "applicant-info">
-                    <div class = "col-6">
-                      <input type="radio" name="type-of-home" id="single-family-home" value="single family home" />
-                      <label for="single-family-home">
-                        Single-Family Home
-                      </label>
-                    </div>
-                    <div class = "col-6">
-                      <input type="radio" name="type-of-home" id="condo-townhome" value="condo/townhome" />
-                      <label for="condo-townhome">
-                        Condo/Townhome
-                      </label>
-                    </div>
-                    <div class = "col-6">
-                      <input type="radio" name="type-of-home" id="apartment" value="apartment" />
-                      <label for="apartment">
-                        Apartment
-                      </label>
-                    </div>
-                    <div class = "col-6">
-                      <input type="radio" name="type-of-home" id="rent-room" value="rent-room" />
-                      <label for="rent-room">
-                        Rent Room
-                      </label>
-                    </div>
-                    <div class = "col-4">
-                      <input type="radio" name="type-of-home" id="housing-other" value="housing-other" />
-                      <label for="housing-other">
-                        Other
-                      </label>
-                    </div>
-                    <div class = "col-6">
-                      <InputDynamicLabel
-                        inputType = "text"
-                        inputName = "housing-other-description"
-                        inputId = "housing-other-description"
-                        inputRequired = false
-                        labelText = "Describe"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <HomeDescription />
+
                 <div class="col-12">
                   <h5>Do you own or rent?</h5>
                   <div class = "applicant-info">

@@ -1,0 +1,92 @@
+---
+import Radio from './Radio.astro';
+
+const homes = {
+    name: "type-of-home",
+    legend: "Describe your home",
+    divClass: "col-2",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "single-family-home": {
+          value: "single family home",
+          text: "Single-Family Home"
+        },
+        "condo-townhome": {
+          value: "condo/townhome",
+          text: "Condo/Townhome"
+        },
+        "apartment": {
+          value: "apartment",
+          text: "Apartment"
+        },
+        "rent-room": {
+          value: "rent-room",
+          text: "Rent Room"
+        },
+        "housing-other": {
+          value: "housing-other",
+          text: "Other"
+        },
+    },
+};
+---
+<style>
+    .two-col-full-width {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+    @media screen and (max-width: 700px) {
+        .two-col-full-width {
+            grid-template-columns: 1fr;
+        }
+    }
+    .one-col-full-width {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+
+    legend {
+      font-size: 0.8em;
+      font-weight: 800;
+      letter-spacing: 0.225em;
+      line-height: 1.5em;
+      margin: 0 0 1em 0;
+      text-transform: uppercase;
+    }
+
+    fieldset[required="true"]:invalid > legend > span::after {
+      position: absolute;
+      content: "✖";
+      padding-left: 5px;
+      color: #8b0000;
+    }
+
+    fieldset[required="true"]:valid > legend > span::after {
+      position: absolute;
+      content: "✓";
+      padding-left: 5px;
+      color: #009000;
+    }
+</style>
+<div class="col-12">
+  <fieldset required={homes.required}>
+    <legend>{homes.legend}<span class={homes.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(homes.entries).map((key) =>
+        <Radio
+          divClass = {homes.divClass}
+          radioName = {homes.name}
+          radioId = {key}
+          radioValue = {homes.entries[key].value}
+          radioRequired = {homes.required}
+          labelText = {homes.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>

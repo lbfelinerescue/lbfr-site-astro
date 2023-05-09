@@ -1,0 +1,32 @@
+---
+export interface Props {
+    divClass?: string;
+    radioClass?: string;
+    radioName: string;
+    radioId: string;
+    radioValue?: string;
+    radioRequired?: string;
+    labelText?: string;
+}
+
+const {
+    divClass = "col-6",
+    radioClass = "radio-dynamic-label",
+    radioName,
+    radioId,
+    radioValue = "",
+    radioRequired = "false",
+    labelText = "",
+} = Astro.props;
+---
+<div class={divClass}>
+    <input
+        type="radio"
+        class={radioClass}
+        name={radioName}
+        id={radioId}
+        value={radioValue}
+        required={radioRequired}
+    />
+    <label for={radioId}>{labelText}</label>
+</div>
