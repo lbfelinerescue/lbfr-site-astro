@@ -1,0 +1,58 @@
+---
+import Radio from '../lib/Radio.astro';
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+
+const treatmentCost = {
+    name: "treatment-cost",
+    legend: "How much would you consider spending on veterinary treatment for your sick cat?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "treatment-cost-100": {
+          value: "$100",
+          text: "$100"
+        },
+        "treatment-cost-500": {
+          value: "$500",
+          text: "$500"
+        },
+        "treatment-cost-1000": {
+          value: "$1000",
+          text: "$1000"
+        },
+        "treatment-cost-2500": {
+          value: "$2500",
+          text: "$2500"
+        },
+        "treatment-cost-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
+---
+<div class="one-col-full-width">
+  <fieldset required={treatmentCost.required}>
+    <legend>{treatmentCost.legend}<span class={treatmentCost.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(treatmentCost.entries).map((key) =>
+        <Radio
+          divClass = {treatmentCost.divClass}
+          radioName = {treatmentCost.name}
+          radioId = {key}
+          radioValue = {treatmentCost.entries[key].value}
+          radioRequired = {treatmentCost.required}
+          labelText = {treatmentCost.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "describe-treatment-cost"
+      textareaId = "describe-treatment-cost"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "If other, please elaborate."
+    />
+  </fieldset>
+</div>

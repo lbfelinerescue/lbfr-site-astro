@@ -1,0 +1,153 @@
+---
+import Checkbox from '../lib/Checkbox.astro';
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+
+const circumstances = {
+    name: "circumstances-question",
+    legend: "Under what circumstances would you not be able to keep your new cat? Please check all that apply.",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "circumstances-personal-changes": {
+          value: "Personal changes for you",
+          text: "Personal changes for you"
+        },
+        "circumstances-new-spouse": {
+          value: "New spouse",
+          text: "New spouse"
+        },
+        "circumstances-new-baby": {
+          value: "New baby",
+          text: "New baby"
+        },
+        "circumstances-new-allergy": {
+          value: "New allergy",
+          text: "New allergy"
+        },
+        "circumstances-disability-illness": {
+          value: "Disability/Illness",
+          text: "Disability/Illness"
+        },
+        "circumstances-new-carpet-drapes-furniture": {
+          value: "New carpet/drapes/furniture",
+          text: "New carpet/drapes/furniture"
+        },
+        "circumstances-kids-too-rough": {
+          value: "Kids too rough with cat",
+          text: "Kids too rough with cat"
+        },
+        "circumstances-does-not-get-along": {
+          value: "Does not ket along with other pet(s)",
+          text: "Does not ket along with other pet(s)"
+        },
+        "circumstances-keeps-you-awake": {
+          value: "Keeps you awake",
+          text: "Keeps you awake"
+        },
+        "circumstances-talks-too-much": {
+          value: "Talks too much",
+          text: "Talks too much"
+        },
+        "circumstances-takes-too-long-to-adjust": {
+          value: "Taking too long to adjust to family -- over 4 weeks",
+          text: "Taking too long to adjust to family -- over 4 weeks"
+        },
+        "circumstances-expensive-vet-bills": {
+          value: "Cat incurs expensive vet bills",
+          text: "Cat incurs expensive vet bills"
+        },
+        "circumstances-special-diet": {
+          value: "Cat needs special diet",
+          text: "Cat needs special diet"
+        },
+        "circumstances-divorce-separation": {
+          value: "Divorce/Separation",
+          text: "Divorce/Separation"
+        },
+        "circumstances-pregnancy": {
+          value: "Pregnancy",
+          text: "Pregnancy"
+        },
+        "circumstances-new-roommate": {
+          value: "New roommate",
+          text: "New roommate"
+        },
+        "circumstances-job-change": {
+          value: "Job change/loss",
+          text: "Job change/loss"
+        },
+        "circumstances-new-residence": {
+          value: "New house/apartment",
+          text: "New house/apartment"
+        },
+        "circumstances-cat-behavior": {
+          value: "Cat's behavior problems",
+          text: "Cat's behavior problems"
+        },
+        "circumstances-cat-too-rough": {
+          value: "Cat too rough with kids",
+          text: "Cat too rough with kids"
+        },
+        "circumstances-spray-litter-box": {
+          value: "Sprays/Does not use litter box",
+          text: "Sprays/Does not use litter box"
+        },
+        "circumstances-scratches-furniture": {
+          value: "Scratches carpets/drapes/furniture",
+          text: "Scratches carpets/drapes/furniture"
+        },
+        "circumstances-need-too-much-attention": {
+          value: "Needs too much attention/time",
+          text: "Needs too much attention/time"
+        },
+        "circumstances-cat-general-health-issues": {
+          value: "Cat has general health issues",
+          text: "Cat has general health issues"
+        },
+        "circumstances-requires-daily-medical": {
+          value: "Requires daily medical treatment",
+          text: "Requires daily medical treatment"
+        },
+        "circumstances-cat-become-disabled": {
+          value: "Cat becomes disabled",
+          text: "Cat becomes disabled"
+        },
+        "circumstances-none": {
+          value: "None of the above",
+          text: "None of the above - Be Sure You Mean This"
+        },
+        "circumstances-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
+
+const circumstancesOnchange = `validateCheckbox('${circumstances.name}')`;
+---
+<div class="one-col-full-width">
+  <fieldset required={circumstances.required}>
+    <legend>{circumstances.legend}<span class={circumstances.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(circumstances.entries).map((key) =>
+        <Checkbox
+          divClass = {circumstances.divClass}
+          checkboxName = {circumstances.name}
+          checkboxId = {key}
+          checkboxValue = {circumstances.entries[key].value}
+          checkboxRequired = {circumstances.required}
+          checkboxOnchange = {circumstancesOnchange}
+          labelText = {circumstances.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "circumstances-describe"
+      textareaId = "circumstances-describe"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "If other, please elaborate."
+    />
+  </fieldset>
+</div>
