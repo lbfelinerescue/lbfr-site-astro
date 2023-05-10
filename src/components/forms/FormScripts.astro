@@ -21,6 +21,7 @@ function dynamicInputReset() {
   let inputs = document.getElementsByClassName("input-dynamic-label");
   let textareas = document.getElementsByClassName("textarea-dynamic-label");
   let radios = document.getElementsByClassName("radio-dynamic-label");
+  let checkboxes = document.getElementsByClassName("checkbox-dynamic-label");
 
   Array.from(inputs).forEach( function(elem) {
     elem.setAttribute('value', "");
@@ -35,5 +36,14 @@ function dynamicInputReset() {
   Array.from(radios).forEach( function(elem) {
     elem.checked = false;
   });
+
+  Array.from(checkboxes).forEach( function(elem) {
+    elem.checked = false;
+  });
+
+  // resets checkboxes that are required
+  $("fieldset[required=true]")
+    .find('input[type=checkbox]')
+    .prop('required', true);
 }
 </script>
