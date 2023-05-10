@@ -1,4 +1,5 @@
 ---
+import Notice from './Notice.astro';
 import AboutYou from './aboutyou/AboutYou.astro';
 import ResidenceInfo from './residenceinfo/ResidenceInfo.astro';
 import CatCare from './catcare/CatCare.astro';
@@ -10,15 +11,8 @@ import Lifestyle from './lifestyle/Lifestyle.astro';
         <form id="adoption-form" name="adoption" method="POST" data-netlify="true">
             <div class="row gtr-uniform">
                 <input type="hidden" name="subject" value="adoption" />
-                <div class="col-12">
-                    <h2>Notice</h2>
-                    Completion of this document DOES NOT imply a guarantee of approval for adoption of any Long Beach Felines animals. This document is the property of Long Beach Felines. Please complete each question completely. Your questionnaire will be thoroughly reviewed after submission. We reserve the right to decline an application without explanation. Any discussions you've had with staff at the Feline Good Social Club Lounge are not binding on Long Beach Felines. This approval process may take a few days. We look forward to getting to know you.
-                    <input type="checkbox" name="acknowledge" id="acknowledge" />
-                    <label for="acknowledge">
-                        By checking this box, I acknowledge that I have read the above paragraph and approve the terms listed.
-                    </label>
-                </div>
 
+                <Notice />
                 <AboutYou />
                 <ResidenceInfo />
                 <CatCare />

@@ -1,0 +1,41 @@
+---
+import Checkbox from './lib/Checkbox.astro';
+import InputDynamicLabel from './lib/InputDynamicLabel.astro';
+
+const notice = {
+    name: "notice-no-guarantee",
+    legend: "Check the box below",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "notice-acknowledge": {
+          value: "notice acknowledged",
+          text: "I acknowledge that I have read the above paragraph and approve the terms listed."
+        },
+    },
+};
+const onchange = `validateCheckbox('${notice.name}')`;
+---
+<div class="col-12">
+  <h2>Notice</h2>
+  <p>
+    Completion of this document DOES NOT imply a guarantee of approval for adoption of any Long Beach Felines animals. This document is the property of Long Beach Felines. Please complete each question completely. Your questionnaire will be thoroughly reviewed after submission. We reserve the right to decline an application without explanation. Any discussions you've had with staff at the Feline Good Social Club Lounge are not binding on Long Beach Felines. This approval process may take a few days. We look forward to getting to know you.
+  </p>
+  <fieldset required={notice.required}>
+    <legend>{notice.legend}<span class={notice.spanClass}></span></legend>
+    <div class = "one-col-full-width">
+      {Object.keys(notice.entries).map((key) =>
+        <Checkbox
+          divClass = {notice.divClass}
+          checkboxName = {notice.name}
+          checkboxId = {key}
+          checkboxValue = {notice.entries[key].value}
+          checkboxRequired = {notice.required}
+          checkboxOnchange = {onchange}
+          labelText = {notice.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
