@@ -1,5 +1,13 @@
 ---
 ---
+<style>
+canvas#signature-pad {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+</style>
 <div class="col-12">
   <h2>Signature</h2>
   <p>
@@ -13,3 +21,38 @@
 <div class="col-4 col-12-xsmall">
   <input type="date" id="signature-date" name="signature-date">
 </div>
+
+<div class="col-12">
+       <canvas id="signature-pad" width="600" height="400"></canvas>
+</div>
+   <div class="clear-btn">
+       <button id="clear-signature"><span> Clear </span></button>
+   </div>
+<script>
+    import SignaturePad from 'signature_pad';
+    var canvas = document.getElementById("signature-pad");
+
+    function resizeCanvas() {
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+        signaturePad.clear();
+    }
+
+
+    var signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgb(250,250,250)'
+    });
+
+    document
+    .getElementById("clear-signature")
+    .addEventListener('click', function(){
+        signaturePad.clear();
+    })
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    //window.onresize = resizeCanvas;
+    //resizeCanvas();
+</script>
