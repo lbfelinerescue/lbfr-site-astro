@@ -1,0 +1,29 @@
+---
+import Notice from './FosterNotice.astro';
+import PersonalInfo from './applicantinfo/PersonalInfo.astro'
+---
+<!-- Foster Form -->
+<section>
+  <div class="inner">
+      <form id="foster-form" name="foster" method="POST" data-netlify="true">
+          <div class="row gtr-uniform">
+              <input type="hidden" name="subject" value="adoption" />
+
+              <Notice />
+              <PersonalInfo />
+              <!-- 
+              <ResidenceInfo />
+              <CatCare />
+              <Lifestyle />
+              <Signature /> -->
+
+              <div class="col-12">
+                  <ul class="actions">
+                      <li><input type="submit" value="Send" class="primary" /></li>
+                      <li><input type="button" value="Reset" onclick="dynamicInputReset();" /></li>
+                  </ul>
+              </div>
+          </div>
+      </form>
+  </div>
+</section>
