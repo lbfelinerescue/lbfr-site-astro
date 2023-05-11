@@ -2,11 +2,8 @@
 export interface Props {
 	title: string;
 }
-<<<<<<< HEAD
 
 import '../styles/main.scss';
-=======
->>>>>>> 356a675 (Home page VU. Added images. Added navbar to home page. Added tribute section. Add websitemeta metadata file. Added website title and icon.)
 
 import Header from '../components/Header.astro';
 // import CTA from '../components/CTA.astro';
@@ -27,7 +24,6 @@ import websitemeta from "../websitemeta"
         <title>{websitemeta.title}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
         <link rel="icon" href={websitemeta.favicon}>
         <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
     </head>
