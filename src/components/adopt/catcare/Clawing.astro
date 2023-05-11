@@ -1,0 +1,101 @@
+---
+import Checkbox from '../lib/Checkbox.astro';
+import Radio from '../lib/Radio.astro';
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+
+const declaw = {
+    name: "desire-declaw",
+    legend: "Do you want to declaw your cat?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "declaw-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "declaw-no": {
+          value: "no",
+          text: "No"
+        },
+    },
+};
+
+const catclaw = {
+    name: "desire-declaw",
+    legend: "What will you do if your cat claws the drapes, furniture, or carpet?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "catclaw-post": {
+          value: "scratching-post",
+          text: "Teach it to use a scratching post"
+        },
+        "catclaw-softpaws": {
+          value: "softpaws",
+          text: "Use soft paws"
+        },
+        "catclaw-declaw": {
+          value: "declaw",
+          text: "Declaw"
+        },
+        "catclaw-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
+
+const catclawOnchange = `validateCheckbox('${catclaw.name}')`;
+---
+<div class="one-col-full-width">
+  <fieldset required={declaw.required}>
+    <legend>{declaw.legend}<span class={declaw.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(declaw.entries).map((key) =>
+        <Radio
+          divClass = {declaw.divClass}
+          radioName = {declaw.name}
+          radioId = {key}
+          radioValue = {declaw.entries[key].value}
+          radioRequired = {declaw.required}
+          labelText = {declaw.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "describe-declaw"
+      textareaId = "describe-declaw"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "Please elaborate."
+    />
+  </fieldset>
+</div>
+
+<div class="one-col-full-width">
+  <fieldset required={catclaw.required}>
+    <legend>{catclaw.legend}<span class={catclaw.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(catclaw.entries).map((key) =>
+        <Checkbox
+          divClass = {catclaw.divClass}
+          checkboxName = {catclaw.name}
+          checkboxId = {key}
+          checkboxValue = {catclaw.entries[key].value}
+          checkboxRequired = {catclaw.required}
+          checkboxOnchange = {catclawOnchange}
+          labelText = {catclaw.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "catclaw-describe"
+      textareaId = "catclaw-describe"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "Please elaborate"
+    />
+  </fieldset>
+</div>

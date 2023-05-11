@@ -1,0 +1,67 @@
+---
+export interface Props {
+    divClass?: string;
+    textareaClass?: string;
+    textareaName: string;
+    textareaId: string;
+    textareaValue?: string;
+    textareaRows?: string;
+    textareaCols?: string;
+    textareaPlaceholder?: string;
+    textareaRequired?: boolean;
+    textareaMaxlength?: string;
+    textareaMinlength?: string;
+    textareaPattern?: string;
+    labelText?: string;
+    spanClass?: string;
+}
+
+const {
+    divClass = "col-12 col-12-xsmall prel",
+    textareaClass = "textarea-dynamic-label",
+    textareaName,
+    textareaId,
+    textareaValue = "",
+    textareaRows = "",
+    textareaCols = "",
+    textareaPlaceholder = "",
+    textareaRequired = false,
+    textareaMaxlength = "1000",
+    textareaMinlength = "",
+    textareaPattern = "",
+    labelText = "",
+    spanClass = "validity",
+} = Astro.props;
+---
+<div class={divClass}>
+    {textareaRequired === "true" ?
+        <textarea
+            class={textareaClass}
+            name={textareaName}
+            id={textareaId}
+            value={textareaValue}
+            rows={textareaRows}
+            cols={textareaCols}
+            placeholder={textareaPlaceholder}
+            required
+            maxlength={textareaMaxlength}
+            minlength={textareaMinlength}
+            pattern={textareaPattern}
+        />
+    :
+        <textarea
+            class={textareaClass}
+            name={textareaName}
+            id={textareaId}
+            value={textareaValue}
+            rows={textareaRows}
+            cols={textareaCols}
+            placeholder={textareaPlaceholder}
+            maxlength={textareaMaxlength}
+            minlength={textareaMinlength}
+            pattern={textareaPattern}
+        />
+    }
+    <label for={textareaId}>{labelText}</label>
+    <span class={spanClass}></span>
+</div>

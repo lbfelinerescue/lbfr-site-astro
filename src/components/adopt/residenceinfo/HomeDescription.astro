@@ -1,0 +1,58 @@
+---
+import Radio from '../lib/Radio.astro';
+import InputDynamicLabel from '../lib/InputDynamicLabel.astro';
+
+const homes = {
+    name: "type-of-home",
+    legend: "What style home is your residence?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "single-family-home": {
+          value: "single family home",
+          text: "Single-Family Home"
+        },
+        "condo-townhome": {
+          value: "condo/townhome",
+          text: "Condo/Townhome"
+        },
+        "apartment": {
+          value: "apartment",
+          text: "Apartment"
+        },
+        "rent-room": {
+          value: "rent-room",
+          text: "Rent Room"
+        },
+        "housing-other": {
+          value: "housing-other",
+          text: "Other"
+        },
+    },
+};
+---
+<div class="col-12">
+  <fieldset required={homes.required}>
+    <legend>{homes.legend}<span class={homes.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(homes.entries).map((key) =>
+        <Radio
+          divClass = {homes.divClass}
+          radioName = {homes.name}
+          radioId = {key}
+          radioValue = {homes.entries[key].value}
+          radioRequired = {homes.required}
+          labelText = {homes.entries[key].text}
+        />
+      )}
+    </div>
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "describe-other-residence"
+      inputId = "describe-other-residence"
+      inputRequired = false
+      labelText = "If other, please describe."
+    />
+  </fieldset>
+</div>

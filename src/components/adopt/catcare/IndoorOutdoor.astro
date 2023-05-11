@@ -1,0 +1,146 @@
+---
+import Checkbox from '../lib/Checkbox.astro';
+import Radio from '../lib/Radio.astro';
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+
+const petdoor = {
+    name: "pet-door-exists",
+    legend: "Do you have a pet door?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "pet-door-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "pet-door-no": {
+          value: "no",
+          text: "No"
+        },
+    },
+};
+
+const petdoorAccess = {
+    name: "pet-door-access",
+    legend: "Will your cat have access to the pet door?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "pet-door-access-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "pet-door-access-no": {
+          value: "no",
+          text: "No"
+        },
+    },
+};
+
+const inorout = {
+    name: "indoor-or-outdoor",
+    legend: "Will your cat be indoor, outdoor, or some mix?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "indoor-only": {
+          value: "indoor only",
+          text: "Indoor Only"
+        },
+        "outdoor-only": {
+          value: "outdoor only",
+          text: "Outdoor Only"
+        },
+        "indoor-outdoor": {
+          value: "indoor/outdoor",
+          text: "Indoor/Outdoor"
+        },
+        "outdoor-supervised": {
+          value: "outdoor supervised",
+          text: "Outdoor Supervised"
+        },
+        "outdoor-balcony-patio": {
+          value: "outdoor balcony/patio",
+          text: "Outdoor On Balcony/Patio"
+        },
+        "outdoor-older": {
+          value: "outdoor when older",
+          text: "Outdoor When They Are Older"
+        },
+        "indoor-outdoor-cat-prefers": {
+          value: "whatever cat prefers",
+          text: "Whatever The Cat Prefers"
+        },
+        "indoor-outdoor-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
+
+const inoroutOnchange = `validateCheckbox('${inorout.name}')`;
+---
+<div class="one-col-full-width">
+  <fieldset required={petdoor.required}>
+    <legend>{petdoor.legend}<span class={petdoor.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(petdoor.entries).map((key) =>
+        <Radio
+          divClass = {petdoor.divClass}
+          radioName = {petdoor.name}
+          radioId = {key}
+          radioValue = {petdoor.entries[key].value}
+          radioRequired = {petdoor.required}
+          labelText = {petdoor.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+
+<div class="one-col-full-width">
+  <fieldset required={petdoorAccess.required}>
+    <legend>{petdoorAccess.legend}<span class={petdoorAccess.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(petdoorAccess.entries).map((key) =>
+        <Radio
+          divClass = {petdoorAccess.divClass}
+          radioName = {petdoorAccess.name}
+          radioId = {key}
+          radioValue = {petdoorAccess.entries[key].value}
+          radioRequired = {petdoorAccess.required}
+          labelText = {petdoorAccess.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+
+<div class="one-col-full-width">
+  <fieldset required={inorout.required}>
+    <legend>{inorout.legend}<span class={inorout.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(inorout.entries).map((key) =>
+        <Checkbox
+          divClass = {inorout.divClass}
+          checkboxName = {inorout.name}
+          checkboxId = {key}
+          checkboxValue = {inorout.entries[key].value}
+          checkboxRequired = {inorout.required}
+          checkboxOnchange = {inoroutOnchange}
+          labelText = {inorout.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "inorout-describe"
+      textareaId = "inorout-describe"
+      textareaRows = "6"
+      textareaRequired = false
+      labelText = "Please elaborate"
+    />
+  </fieldset>
+</div>

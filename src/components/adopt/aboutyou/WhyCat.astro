@@ -1,0 +1,64 @@
+---
+import Checkbox from '../lib/Checkbox.astro';
+import InputDynamicLabel from '../lib/InputDynamicLabel.astro';
+
+const wlfc = {
+    name: "why-looking-for-cat",
+    legend: "Why are you looking for a cat?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "wlfc-for-you": {
+          value: "self",
+          text: "For yourself"
+        },
+        "wlfc-companion": {
+          value: "companion",
+          text: "As a companion"
+        },
+        "wlfc-for-spouse": {
+          value: "spouse",
+          text: "For your spouse"
+        },
+        "wlfc-pet": {
+          value: "pet",
+          text: "As a pet"
+        },
+        "wlfc-children": {
+          value: "children",
+          text: "For your children"
+        },
+        "wlfc-gift": {
+          value: "gift",
+          text: "As a gift"
+        },
+    },
+};
+const onchange = `validateCheckbox('${wlfc.name}')`;
+---
+<div class="col-12">
+  <fieldset required={wlfc.required}>
+    <legend>{wlfc.legend}<span class={wlfc.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(wlfc.entries).map((key) =>
+        <Checkbox
+          divClass = {wlfc.divClass}
+          checkboxName = {wlfc.name}
+          checkboxId = {key}
+          checkboxValue = {wlfc.entries[key].value}
+          checkboxRequired = {wlfc.required}
+          checkboxOnchange = {onchange}
+          labelText = {wlfc.entries[key].text}
+        />
+      )}
+    </div>
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "describe-gift-cat"
+      inputId = "describe-gift-cat"
+      inputRequired = false
+      labelText = "If as a gift, who is it for?"
+    />
+  </fieldset>
+</div>

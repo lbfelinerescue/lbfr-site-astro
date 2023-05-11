@@ -1,0 +1,38 @@
+---
+import Radio from '../lib/Radio.astro';
+
+const ownrent = {
+    name: "own-or-rent",
+    legend: "Do you own or rent?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "own": {
+          value: "own",
+          text: "Own"
+        },
+        "rent": {
+          value: "rent",
+          text: "Rent"
+        },
+    },
+};
+---
+<div class="col-12">
+  <fieldset required={ownrent.required}>
+    <legend>{ownrent.legend}<span class={ownrent.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(ownrent.entries).map((key) =>
+        <Radio
+          divClass = {ownrent.divClass}
+          radioName = {ownrent.name}
+          radioId = {key}
+          radioValue = {ownrent.entries[key].value}
+          radioRequired = {ownrent.required}
+          labelText = {ownrent.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>

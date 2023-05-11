@@ -1,0 +1,50 @@
+---
+import InputDynamicLabel from '../lib/InputDynamicLabel.astro';
+---
+<div class = "two-col-full-width">
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-address"
+      inputId = "applicant-address"
+      inputRequired = true
+      labelText = "Street Address"
+    />
+  </div>
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-city"
+      inputId = "applicant-city"
+      inputRequired = true
+      labelText = "City"
+    />
+  </div>
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-state"
+      inputId = "applicant-state"
+      inputRequired = true
+      labelText = "State"
+    />
+  </div>
+  <div class = "col-6">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "applicant-zip-code"
+      inputId = "applicant-zip-code"
+      inputRequired = true
+      labelText = "Zip Code"
+    />
+  </div>
+</div>
+<div class = "col-12">
+  <InputDynamicLabel
+    inputType = "text"
+    inputName = "how-long-at-address"
+    inputId = "how-long-at-address"
+    inputRequired = true
+    labelText = "How long have you lived at this address?"
+  />
+</div>

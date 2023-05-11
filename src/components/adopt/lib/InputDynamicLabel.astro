@@ -1,0 +1,60 @@
+---
+export interface Props {
+    divClass?: string;
+    inputClass?: string;
+    inputType: string;
+    inputName: string;
+    inputId: string;
+    inputValue?: string;
+    inputPlaceholder?: string;
+    inputRequired?: boolean;
+    inputMaxlength?: string;
+    inputPattern?: string;
+    labelText?: string;
+    spanClass?: string;
+}
+
+const {
+    divClass = "col-6 col-12-xsmall prel",
+    inputClass = "input-dynamic-label",
+    inputType,
+    inputName,
+    inputId,
+    inputValue = "",
+    inputPlaceholder = "",
+    inputRequired = false,
+    inputMaxlength = "",
+    inputPattern = ".*",
+    labelText = "",
+    spanClass = "validity",
+} = Astro.props;
+---
+<!-- Adoption Form -->
+<div class={divClass}>
+    {inputRequired === "true" ?
+        <input
+            class:list={[inputClass, {required: inputRequired==="true"}]}
+            type={inputType}
+            name={inputName}
+            id={inputId}
+            value={inputValue}
+            placeholder={inputPlaceholder}
+            required
+            maxlength={inputMaxlength}
+            pattern={inputPattern}
+        />
+    :
+        <input
+            class:list={[inputClass, {required: inputRequired==="true"}]}
+            type={inputType}
+            name={inputName}
+            id={inputId}
+            value={inputValue}
+            placeholder={inputPlaceholder}
+            maxlength={inputMaxlength}
+            pattern={inputPattern}
+        />
+    }
+    <label for={inputId}>{labelText}</label>
+    <span class={spanClass}></span>
+</div>

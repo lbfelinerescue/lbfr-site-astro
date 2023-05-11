@@ -1,0 +1,39 @@
+---
+import Radio from '../lib/Radio.astro';
+
+const homevisit = {
+    name: "home-visit",
+    legend: "Do you object to a home visit?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "home-visit-object-no": {
+          value: "no",
+          text: "No"
+        },
+        "home-visit-object-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+    },
+};
+---
+<div class="col-12">
+  <fieldset required={homevisit.required}>
+    <legend>{homevisit.legend}<span class={homevisit.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(homevisit.entries).map((key) =>
+        <Radio
+          divClass = {homevisit.divClass}
+          radioName = {homevisit.name}
+          radioId = {key}
+          radioValue = {homevisit.entries[key].value}
+          radioRequired = {homevisit.required}
+          labelText = {homevisit.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+
