@@ -6,9 +6,10 @@ export interface Props {
 import '../styles/main.scss';
 
 import Header from '../components/Header.astro';
-import CTA from '../components/CTA.astro';
+// import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
 import Scripts from '../components/Scripts.astro';
+import Contact from '../components/ContactUs.astro';
 
 import websitemeta from "../websitemeta"
 ---
@@ -26,12 +27,21 @@ import websitemeta from "../websitemeta"
         <link rel="icon" href={websitemeta.favicon}>
         <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
     </head>
+    <style>
+      #page-wrapper {
+        background-image: url("/images/hero.jpg");
+        background-size: cover;
+        background-position-y: 10%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+    </style>
     <body class="is-preload">
         <!-- Page Wrapper -->
         <div id="page-wrapper">
             <Header />
             <slot />
-            <CTA />
+            <Contact />
             <Footer />
         </div>
         <Scripts />

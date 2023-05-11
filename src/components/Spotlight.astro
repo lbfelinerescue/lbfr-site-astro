@@ -2,7 +2,6 @@
 export interface Props {
   imageSrc: string;
   header: string;
-  text: string;
 }
 const { imageSrc, header, text } = Astro.props;
 ---
@@ -12,6 +11,8 @@ const { imageSrc, header, text } = Astro.props;
     </div>
     <div class="content">
         <h2>{header}</h2>
-        <slot />
+        <p>
+            <slot />
+        </p>
     </div>
 </section>
