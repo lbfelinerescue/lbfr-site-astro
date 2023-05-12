@@ -1,4 +1,16 @@
 /* Column Formatting */
+.three-col-full-width {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media screen and (max-width: 700px) {
+  .three-col-full-width {
+    grid-template-columns: 1fr;
+  }
+}
+
 .two-col-full-width {
     display: grid;
     grid-template-columns: 1fr 1fr;
