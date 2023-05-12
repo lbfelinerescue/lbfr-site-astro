@@ -1,0 +1,74 @@
+---
+import Checkbox from '../../lib/Checkbox.astro';
+import TextAreaDynamicLabel from '../../lib/TextAreaDynamicLabel.astro';
+
+const fosterInterests = {
+    name: "foster-interests",
+    legend: "What are you interested in fostering? Please check all that apply",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "foster-interests-baby-bottle-kitten": {
+          value: "Bottle Baby Kitten",
+          text: "Bottle Baby Kitten"
+        },
+        "foster-interests-orphan-kittens-weaned": {
+          value: "Orphan Kittens - Weaned",
+          text: "Orphan Kittens - Weaned"
+        },
+        "foster-interests-mom-with-kitten": {
+          value: "Mom with Kittens",
+          text: "Mom with Kittens"
+        },
+        "foster-interests-teenagers": {
+          value: "Teenagers",
+          text: "Teenagers"
+        },
+        "foster-interests-adults": {
+          value: "Adults",
+          text: "Adults"
+        },
+        "foster-interests-special-needs-medical": {
+          value: "Special Needs - Medical",
+          text: "Special Needs - Medical"
+        },
+        "foster-interests-special-needs-timid": {
+          value: "Special Needs - Timid",
+          text: "Special Needs - Timid"
+        },
+        "foster-interests-seniors": {
+          value: "Seniors",
+          text: "Seniors"
+        },
+        
+    },
+};
+
+const fosterInterestsOnchange = `validateCheckbox('${fosterInterests.name}')`;
+---
+<div class="one-col-full-width">
+  <fieldset required={fosterInterests.required}>
+    <legend>{fosterInterests.legend}<span class={fosterInterests.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(fosterInterests.entries).map((key) =>
+        <Checkbox
+          divClass = {fosterInterests.divClass}
+          checkboxName = {fosterInterests.name}
+          checkboxId = {key}
+          checkboxValue = {fosterInterests.entries[key].value}
+          checkboxRequired = {fosterInterests.required}
+          checkboxOnchange = {fosterInterestsOnchange}
+          labelText = {fosterInterests.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "previous-foster-experience"
+      textareaId = "previous-foster-experience"
+      textareaRows = "2"
+      textareaRequired = false
+      labelText = "Please list previous foster/rescue experience:"
+    />
+  </fieldset>
+</div>

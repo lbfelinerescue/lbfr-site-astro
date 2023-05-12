@@ -1,0 +1,96 @@
+---
+import Radio from '../../lib/Radio.astro';
+
+const petVaccinations = {
+    name: "current-pet-vaccinations",
+    legend: "Are your current pets vaccinations up to date?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "current-pet-vaccinations-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "current-pet-vaccinations-no": {
+          value: "no",
+          text: "No"
+        },
+        "current-pet-vaccinations-not-applicable": {
+          value: "not applicable",
+          text: "Not Applicable"
+        },
+    },
+};
+
+const inorout = {
+    name: "current-pets-indoor-or-outdoor",
+    legend: "Are your current pets:",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "indoor-only": {
+          value: "indoor",
+          text: "Indoor"
+        },
+        "outdoor-only": {
+          value: "outdoor",
+          text: "Outdoor"
+        },
+        "both": {
+          value: "both",
+          text: "Both"
+        }
+    },
+};
+
+---
+<style>
+  .three-col-full-width {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media screen and (max-width: 700px) {
+    .three-col-full-width {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<div class="one-col-full-width">
+  <fieldset required={petVaccinations.required}>
+    <legend>{petVaccinations.legend}<span class={petVaccinations.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(petVaccinations.entries).map((key) =>
+        <Radio
+          divClass = {petVaccinations.divClass}
+          radioName = {petVaccinations.name}
+          radioId = {key}
+          radioValue = {petVaccinations.entries[key].value}
+          radioRequired = {petVaccinations.required}
+          labelText = {petVaccinations.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+
+<div class="one-col-full-width">
+  <fieldset required={inorout.required}>
+    <legend>{inorout.legend}<span class={inorout.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(inorout.entries).map((key) =>
+        <Radio
+          divClass = {inorout.divClass}
+          radioName = {inorout.name}
+          radioId = {key}
+          radioValue = {inorout.entries[key].value}
+          radioRequired = {inorout.required}
+          labelText = {inorout.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>

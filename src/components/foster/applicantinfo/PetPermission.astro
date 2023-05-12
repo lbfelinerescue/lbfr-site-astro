@@ -1,0 +1,38 @@
+---
+import Radio from '../../lib/Radio.astro';
+
+const petpermission = {
+    name: "pet-permission",
+    legend: "Are animals allowed in your residence?",
+    divClass: "col-6",
+    required: "false",
+    spanClass: "validity",
+    entries: {
+        "pet-permission-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "pet-permission-no": {
+          value: "no",
+          text: "No"
+        },
+    },
+};
+---
+<div class="col-12">
+  <fieldset required={petpermission.required}>
+    <legend>{petpermission.legend}<span class={petpermission.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(petpermission.entries).map((key) =>
+        <Radio
+          divClass = {petpermission.divClass}
+          radioName = {petpermission.name}
+          radioId = {key}
+          radioValue = {petpermission.entries[key].value}
+          radioRequired = {petpermission.required}
+          labelText = {petpermission.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>

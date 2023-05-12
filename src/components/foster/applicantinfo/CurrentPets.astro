@@ -1,0 +1,43 @@
+---
+import InputDynamicLabel from '../../lib/InputDynamicLabel.astro'
+---
+<style>
+  .current-residents {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .current-residents {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<div style="width: 100%">
+  <legend>Number of animals currently living with you:</legend>
+  <div class="current-residents">
+    <InputDynamicLabel
+      inputType="text"
+      inputName="current-pets-cats"
+      inputId="current-pets-cats"
+      inputRequired=false
+      labelText="Cats:"
+    />
+    <InputDynamicLabel
+      inputType="text"
+      inputName="current-pets-dogs"
+      inputId="current-pets-dogs"
+      inputRequired=false
+      labelText="Dogs:"
+    />
+    <InputDynamicLabel
+      inputType="text"
+      inputName="current-pets-other"
+      inputId="current-pets-other"
+      inputRequired=false
+      labelText="Other:"
+    />
+  </div>
+</div>
