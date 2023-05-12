@@ -23,6 +23,7 @@ canvas#signature-pad {
 </div>
 
 <div class="col-12">
+  <input type="hidden" id="hidden-signature">
   <canvas id="signature-pad" width="600" height="400"></canvas>
 </div>
 <div class="col-12">
@@ -53,6 +54,14 @@ canvas#signature-pad {
     .addEventListener('click', function(){
         signaturePad.clear();
     })
+
+    function updateSignatureValue() {
+        document.getElementById('hidden-signature').value = signaturePad.toDataURL();
+    }
+
+    document
+    .getElementById('adoption-form')
+    .addEventListener('submit', updateSignatureValue, true);
 
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
