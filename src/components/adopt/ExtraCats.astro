@@ -1,0 +1,68 @@
+---
+import InputDynamicLabel from '../lib/InputDynamicLabel.astro';
+import HorizontalRule from '../lib/HorizontalRule.astro';
+---
+<div class="col-12">
+    <h2>Extra Cats</h2>
+</div>
+<div class="col-12" id="extra-cats">
+</div>
+<div class="col-12">
+    <ul class="actions">
+        <li><input type="button" value="Add Cat" onclick="addCat()" /></li>
+    </ul>
+</div>
+<template id="extra-cats-template">
+    <div class = "two-col-full-width">
+        <InputDynamicLabel
+          inputType = "text"
+          inputName = "cat-name-name"
+          inputId = "cat-name-id"
+          inputRequired = true
+          labelText = "Cat Name"
+        />
+        <InputDynamicLabel
+          inputType = "text"
+          inputName = "cat-age-name"
+          inputId = "cat-age-id"
+          inputRequired = true
+          labelText = "Age"
+        />
+        <InputDynamicLabel
+          inputType = "text"
+          inputName = "cat-gender-name"
+          inputId = "cat-gender-id"
+          inputRequired = true
+          labelText = "Gender"
+        />
+        <InputDynamicLabel
+          inputType = "text"
+          inputName = "cat-spayed-neutered-name"
+          inputId = "cat-spayed-neutered-id"
+          inputRequired = true
+          labelText = "Spayed/Neutered"
+        />
+        <InputDynamicLabel
+          inputType = "text"
+          inputName = "cat-declawed-name"
+          inputId = "cat-declawed-id"
+          inputRequired = true
+          labelText = "Declawed"
+        />
+    </div>
+    <div class="row">
+        <HorizontalRule />
+    </div>
+</template>
+<script is:inline>
+    function getRandomId () {
+        return Math.random().toString(36).substring(2);
+    }
+
+    function addCat() {
+        const $extraCats = document.getElementById("extra-cats");
+        const $extraCatsTemplate = document.getElementById("extra-cats-template");
+        const $extraCatsClone = $extraCatsTemplate.content.cloneNode(true);
+        $extraCats.appendChild($extraCatsClone);
+    }
+</script>
