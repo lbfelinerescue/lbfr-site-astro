@@ -50,6 +50,27 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
               inputRequired = true
               labelText = "Declawed"
             />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-declawed-where"
+              inputId = "extra-cat-[CATID]-declawed-where"
+              inputRequired = false
+              labelText = "If declawed, where?"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-felv-fiv-tested"
+              inputId = "extra-cat-[CATID]-felv-fiv-tested"
+              inputRequired = true
+              labelText = "Tested for FeLV & FIV?"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-felv-fiv-result"
+              inputId = "extra-cat-[CATID]-felv-fiv-result"
+              inputRequired = true
+              labelText = "Test result?"
+            />
         </div>
 
         <div class="col-12 ptop15">
