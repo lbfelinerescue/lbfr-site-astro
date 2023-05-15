@@ -108,7 +108,7 @@ const allowedOutside = {
               inputType = "text"
               inputName = "extra-cat-[CATID]-felv-fiv-result"
               inputId = "extra-cat-[CATID]-felv-fiv-result"
-              inputRequired = true
+              inputRequired = false
               labelText = "Test result?"
             />
         </div>
@@ -136,6 +136,16 @@ const allowedOutside = {
               labelText = "If other, please elaborate."
             />
           </fieldset>
+        </div>
+
+        <div class = "one-col-full-width ptop15">
+            <TextAreaDynamicLabel
+              textareaName = "extra-cat-[CATID]-dont-still-own"
+              textareaId = "extra-cat-[CATID]-dont-still-own"
+              textareaRows = "3"
+              textareaRequired = true
+              labelText = "Do you still own them? If no, why? If they are deceased, from what?"
+            />
         </div>
 
         <div class="col-12 ptop15">
