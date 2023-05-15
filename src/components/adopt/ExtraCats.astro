@@ -17,36 +17,36 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
         <div class = "two-col-full-width">
             <InputDynamicLabel
               inputType = "text"
-              inputName = "extra-cat-name-name"
-              inputId = "extra-cat-name-id"
+              inputName = "extra-cat-[CATID]-name"
+              inputId = "extra-cat-[CATID]-name"
               inputRequired = true
               labelText = "Cat Name"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "extra-cat-age-name"
-              inputId = "extra-cat-age-id"
+              inputName = "extra-cat-[CATID]-age"
+              inputId = "extra-cat-[CATID]-age"
               inputRequired = true
               labelText = "Age"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "extra-cat-gender-name"
-              inputId = "extra-cat-gender-id"
+              inputName = "extra-cat-[CATID]-gender"
+              inputId = "extra-cat-[CATID]-gender"
               inputRequired = true
               labelText = "Gender"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "extra-cat-spayed-neutered-name"
-              inputId = "extra-cat-spayed-neutered-id"
+              inputName = "extra-cat-[CATID]-spayed-neutered"
+              inputId = "extra-cat-[CATID]-spayed-neutered"
               inputRequired = true
               labelText = "Spayed/Neutered"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "extra-cat-declawed-name"
-              inputId = "extra-cat-declawed-id"
+              inputName = "extra-cat-[CATID]-declawed"
+              inputId = "extra-cat-[CATID]-declawed"
               inputRequired = true
               labelText = "Declawed"
             />
@@ -54,7 +54,7 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
 
         <div class="col-12 ptop15">
             <ul class="actions">
-                <li><input class="extra-cat-remove" type="button" value="Remove Cat" /></li>
+                <li><button class="extra-cat-remove">Remove Cat</button></li>
             </ul>
         </div>
 
@@ -92,9 +92,32 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
                 document.getElementById(eccri).remove();
             });
 
+        templateUpdateCatid($extraCatsClone, randomId);
         templateEventListener($extraCatsClone);
 
         $extraCats.appendChild($extraCatsClone);
+    }
+
+    function templateUpdateCatid (fragment, replacement) {
+        fragment
+            .querySelectorAll("input")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("name", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    })
+                    .attr("id", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    });
+            });
+        fragment
+            .querySelectorAll("label")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("for", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    })
+            });
     }
 
     function templateEventListener(fragment) {
