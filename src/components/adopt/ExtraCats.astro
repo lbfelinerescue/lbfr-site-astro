@@ -63,6 +63,23 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
         const $extraCats = document.getElementById("extra-cats");
         const $extraCatsTemplate = document.getElementById("extra-cats-template");
         const $extraCatsClone = $extraCatsTemplate.content.cloneNode(true);
+
+        templateEventListener($extraCatsClone);
+
         $extraCats.appendChild($extraCatsClone);
+    }
+
+    function templateEventListener(fragment) {
+        fragment.querySelectorAll('.input-dynamic-label').forEach (function(elem) {
+            elem.addEventListener('input', function() {
+                elem.setAttribute('value', elem.value);
+            })
+        })
+
+        fragment.querySelectorAll('.textarea-dynamic-label').forEach (function(elem) {
+            elem.addEventListener('input', function() {
+                elem.setAttribute('value', elem.value);
+            })
+        })
     }
 </script>
