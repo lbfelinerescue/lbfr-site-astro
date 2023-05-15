@@ -1,6 +1,46 @@
 ---
 import InputDynamicLabel from '../lib/InputDynamicLabel.astro';
 import HorizontalRule from '../lib/HorizontalRule.astro';
+import Radio from '../lib/Radio.astro';
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+
+const allowedOutside = {
+    name: "extra-cat-[CATID]-allowed-outdoors",
+    legend: "Are they allowed outdoors?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "extra-cat-[CATID]-allowed-outdoors-no": {
+          value: "no",
+          text: "No"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-anytime": {
+          value: "yes, anytime",
+          text: "Yes, anytime"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-daytime-only": {
+          value: "yes, daytime only",
+          text: "Yes, daytime only"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-under-supervision": {
+          value: "yes, under supervision",
+          text: "Yes, under supervision"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-on-balcony-patio": {
+          value: "yes, on balcony/patio",
+          text: "Yes, on balcony/patio"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-when-older": {
+          value: "yes, when they are older",
+          text: "Yes, when they are older"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
 ---
 <div class="col-12">
     <h2>Extra Cats</h2>
@@ -73,6 +113,31 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
             />
         </div>
 
+        <div class="one-col-full-width ptop15">
+          <fieldset required={allowedOutside.required}>
+            <legend>{allowedOutside.legend}<span class={allowedOutside.spanClass}></span></legend>
+            <div class = "two-col-full-width">
+              {Object.keys(allowedOutside.entries).map((key) =>
+                <Radio
+                  divClass = {allowedOutside.divClass}
+                  radioName = {allowedOutside.name}
+                  radioId = {key}
+                  radioValue = {allowedOutside.entries[key].value}
+                  radioRequired = {allowedOutside.required}
+                  labelText = {allowedOutside.entries[key].text}
+                />
+              )}
+            </div>
+            <TextAreaDynamicLabel
+              textareaName = "extra-cat-[CATID]-allowed-outdoors-other-description"
+              textareaId = "extra-cat-[CATID]-allowed-outdoors-other-description"
+              textareaRows = "3"
+              textareaRequired = false
+              labelText = "If other, please elaborate."
+            />
+          </fieldset>
+        </div>
+
         <div class="col-12 ptop15">
             <ul class="actions">
                 <li><button class="extra-cat-remove">Remove Cat</button></li>
@@ -131,6 +196,19 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
                         return currentAttr.replace("CATID", replacement);
                     });
             });
+
+        fragment
+            .querySelectorAll("textarea")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("name", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    })
+                    .attr("id", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    });
+            });
+
         fragment
             .querySelectorAll("label")
             .forEach (function(elem) {
