@@ -17,36 +17,36 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
         <div class = "two-col-full-width">
             <InputDynamicLabel
               inputType = "text"
-              inputName = "cat-name-name"
-              inputId = "cat-name-id"
+              inputName = "extra-cat-name-name"
+              inputId = "extra-cat-name-id"
               inputRequired = true
               labelText = "Cat Name"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "cat-age-name"
-              inputId = "cat-age-id"
+              inputName = "extra-cat-age-name"
+              inputId = "extra-cat-age-id"
               inputRequired = true
               labelText = "Age"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "cat-gender-name"
-              inputId = "cat-gender-id"
+              inputName = "extra-cat-gender-name"
+              inputId = "extra-cat-gender-id"
               inputRequired = true
               labelText = "Gender"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "cat-spayed-neutered-name"
-              inputId = "cat-spayed-neutered-id"
+              inputName = "extra-cat-spayed-neutered-name"
+              inputId = "extra-cat-spayed-neutered-id"
               inputRequired = true
               labelText = "Spayed/Neutered"
             />
             <InputDynamicLabel
               inputType = "text"
-              inputName = "cat-declawed-name"
-              inputId = "cat-declawed-id"
+              inputName = "extra-cat-declawed-name"
+              inputId = "extra-cat-declawed-id"
               inputRequired = true
               labelText = "Declawed"
             />
@@ -54,7 +54,7 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
 
         <div class="col-12 ptop15">
             <ul class="actions">
-                <li><input class="remove-extra-cat" type="button" value="Remove Cat" /></li>
+                <li><input class="extra-cat-remove" type="button" value="Remove Cat" /></li>
             </ul>
         </div>
 
@@ -87,7 +87,7 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
             .setAttribute('id', eccri);
 
         $extraCatsClone
-            .querySelector(".remove-extra-cat")
+            .querySelector(".extra-cat-remove")
             .addEventListener('click', function() {
                 document.getElementById(eccri).remove();
             });
