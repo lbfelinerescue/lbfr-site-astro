@@ -51,11 +51,25 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
               labelText = "Declawed"
             />
         </div>
+
+        <div class="col-12 ptop15">
+            <ul class="actions">
+                <li><input class="remove-extra-cat" type="button" value="Remove Cat" /></li>
+            </ul>
+        </div>
+
         <div class="row">
             <HorizontalRule />
         </div>
     </div>
 </template>
+
+<style>
+    .ptop15 {
+        padding-top: 1.5em !important;
+    }
+</style>
+
 <script is:inline>
     function getRandomId () {
         return Math.random().toString(36).substring(2);
@@ -65,6 +79,18 @@ import HorizontalRule from '../lib/HorizontalRule.astro';
         const $extraCats = document.getElementById("extra-cats");
         const $extraCatsTemplate = document.getElementById("extra-cats-template");
         const $extraCatsClone = $extraCatsTemplate.content.cloneNode(true);
+
+        const randomId = getRandomId();
+        const eccri = "extra-cat-container-" + randomId;
+        $extraCatsClone
+            .querySelector('.extra-cat-container')
+            .setAttribute('id', eccri);
+
+        $extraCatsClone
+            .querySelector(".remove-extra-cat")
+            .addEventListener('click', function() {
+                document.getElementById(eccri).remove();
+            });
 
         templateEventListener($extraCatsClone);
 
