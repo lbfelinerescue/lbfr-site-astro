@@ -1,0 +1,246 @@
+---
+import InputDynamicLabel from '../../lib/InputDynamicLabel.astro';
+import HorizontalRule from '../../lib/HorizontalRule.astro';
+import Radio from '../../lib/Radio.astro';
+import TextAreaDynamicLabel from '../../lib/TextAreaDynamicLabel.astro';
+
+const allowedOutside = {
+    name: "extra-cat-[CATID]-allowed-outdoors",
+    legend: "Are they allowed outdoors?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "extra-cat-[CATID]-allowed-outdoors-no": {
+          value: "no",
+          text: "No"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-anytime": {
+          value: "yes, anytime",
+          text: "Yes, anytime"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-daytime-only": {
+          value: "yes, daytime only",
+          text: "Yes, daytime only"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-under-supervision": {
+          value: "yes, under supervision",
+          text: "Yes, under supervision"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-on-balcony-patio": {
+          value: "yes, on balcony/patio",
+          text: "Yes, on balcony/patio"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-yes-when-older": {
+          value: "yes, when they are older",
+          text: "Yes, when they are older"
+        },
+        "extra-cat-[CATID]-allowed-outdoors-other": {
+          value: "other",
+          text: "Other"
+        },
+    },
+};
+---
+<div class="col-12">
+    <h2>Currently Own Cats</h2>
+    <p>List all cats you have owned in the past 10 years.</p>
+</div>
+<div class="col-12" id="extra-cats">
+</div>
+<div class="col-12">
+    <ul class="actions">
+        <li><input type="button" value="Add Cat" onclick="addCat()" /></li>
+    </ul>
+</div>
+<template id="extra-cats-template">
+    <div class="extra-cat-container">
+        <div class = "two-col-full-width">
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-name"
+              inputId = "extra-cat-[CATID]-name"
+              inputRequired = true
+              labelText = "Cat Name"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-age"
+              inputId = "extra-cat-[CATID]-age"
+              inputRequired = true
+              labelText = "Age"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-gender"
+              inputId = "extra-cat-[CATID]-gender"
+              inputRequired = true
+              labelText = "Gender"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-spayed-neutered"
+              inputId = "extra-cat-[CATID]-spayed-neutered"
+              inputRequired = true
+              labelText = "Spayed/Neutered"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-declawed"
+              inputId = "extra-cat-[CATID]-declawed"
+              inputRequired = true
+              labelText = "Declawed"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-declawed-where"
+              inputId = "extra-cat-[CATID]-declawed-where"
+              inputRequired = false
+              labelText = "If declawed, where?"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-felv-fiv-tested"
+              inputId = "extra-cat-[CATID]-felv-fiv-tested"
+              inputRequired = true
+              labelText = "Tested for FeLV & FIV?"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-cat-[CATID]-felv-fiv-result"
+              inputId = "extra-cat-[CATID]-felv-fiv-result"
+              inputRequired = false
+              labelText = "Test result?"
+            />
+        </div>
+
+        <div class="one-col-full-width ptop15">
+          <fieldset required={allowedOutside.required}>
+            <legend>{allowedOutside.legend}<span class={allowedOutside.spanClass}></span></legend>
+            <div class = "two-col-full-width">
+              {Object.keys(allowedOutside.entries).map((key) =>
+                <Radio
+                  divClass = {allowedOutside.divClass}
+                  radioName = {allowedOutside.name}
+                  radioId = {key}
+                  radioValue = {allowedOutside.entries[key].value}
+                  radioRequired = {allowedOutside.required}
+                  labelText = {allowedOutside.entries[key].text}
+                />
+              )}
+            </div>
+            <TextAreaDynamicLabel
+              textareaName = "extra-cat-[CATID]-allowed-outdoors-other-description"
+              textareaId = "extra-cat-[CATID]-allowed-outdoors-other-description"
+              textareaRows = "3"
+              textareaRequired = false
+              labelText = "If other, please elaborate."
+            />
+          </fieldset>
+        </div>
+
+        <div class = "one-col-full-width ptop15">
+            <TextAreaDynamicLabel
+              textareaName = "extra-cat-[CATID]-dont-still-own"
+              textareaId = "extra-cat-[CATID]-dont-still-own"
+              textareaRows = "3"
+              textareaRequired = true
+              labelText = "Do you still own them? If no, why? If they are deceased, from what?"
+            />
+        </div>
+
+        <div class="col-12 ptop15">
+            <ul class="actions">
+                <li><button class="extra-cat-remove">Remove Cat</button></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <HorizontalRule />
+        </div>
+    </div>
+</template>
+
+<style>
+    .ptop15 {
+        padding-top: 1.5em !important;
+    }
+</style>
+
+<script is:inline>
+    function getRandomId () {
+        return Math.random().toString(36).substring(2);
+    }
+
+    function addCat() {
+        const $extraCats = document.getElementById("extra-cats");
+        const $extraCatsTemplate = document.getElementById("extra-cats-template");
+        const $extraCatsClone = $extraCatsTemplate.content.cloneNode(true);
+
+        const randomId = getRandomId();
+        const eccri = "extra-cat-container-" + randomId;
+        $extraCatsClone
+            .querySelector('.extra-cat-container')
+            .setAttribute('id', eccri);
+
+        $extraCatsClone
+            .querySelector(".extra-cat-remove")
+            .addEventListener('click', function() {
+                document.getElementById(eccri).remove();
+            });
+
+        templateUpdateCatid($extraCatsClone, randomId);
+        templateEventListener($extraCatsClone);
+
+        $extraCats.appendChild($extraCatsClone);
+    }
+
+    function templateUpdateCatid (fragment, replacement) {
+        fragment
+            .querySelectorAll("input")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("name", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    })
+                    .attr("id", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    });
+            });
+
+        fragment
+            .querySelectorAll("textarea")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("name", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    })
+                    .attr("id", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    });
+            });
+
+        fragment
+            .querySelectorAll("label")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("for", function(_, currentAttr) {
+                        return currentAttr.replace("CATID", replacement);
+                    })
+            });
+    }
+
+    function templateEventListener(fragment) {
+        fragment.querySelectorAll('.input-dynamic-label').forEach (function(elem) {
+            elem.addEventListener('input', function() {
+                elem.setAttribute('value', elem.value);
+            })
+        })
+
+        fragment.querySelectorAll('.textarea-dynamic-label').forEach (function(elem) {
+            elem.addEventListener('input', function() {
+                elem.setAttribute('value', elem.value);
+            })
+        })
+    }
+</script>

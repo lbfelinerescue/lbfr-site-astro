@@ -1,0 +1,164 @@
+---
+import InputDynamicLabel from '../../lib/InputDynamicLabel.astro';
+import HorizontalRule from '../../lib/HorizontalRule.astro';
+import TextAreaDynamicLabel from '../../lib/TextAreaDynamicLabel.astro';
+---
+<div class="col-12">
+    <h2>Currently Own Dogs</h2>
+    <p>List all dogs you have now.</p>
+</div>
+<div class="col-12" id="extra-dogs">
+</div>
+<div class="col-12">
+    <ul class="actions">
+        <li><input type="button" value="Add Dog" onclick="addDog()" /></li>
+    </ul>
+</div>
+<template id="extra-dogs-template">
+    <div class="extra-dog-container">
+        <div class = "two-col-full-width">
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-dog-[DOGID]-name"
+              inputId = "extra-dog-[DOGID]-name"
+              inputRequired = true
+              labelText = "Dog Name"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-dog-[DOGID]-age"
+              inputId = "extra-dog-[DOGID]-age"
+              inputRequired = true
+              labelText = "Age"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-dog-[DOGID]-gender"
+              inputId = "extra-dog-[DOGID]-gender"
+              inputRequired = true
+              labelText = "Gender"
+            />
+            <InputDynamicLabel
+              inputType = "text"
+              inputName = "extra-dog-[DOGID]-spayed-neutered"
+              inputId = "extra-dog-[DOGID]-spayed-neutered"
+              inputRequired = true
+              labelText = "Spayed/Neutered"
+            />
+        </div>
+
+        <div class = "one-col-full-width ptop15">
+            <TextAreaDynamicLabel
+              textareaName = "extra-dog-[DOGID]-cat-exp"
+              textareaId = "extra-dog-[DOGID]-cat-exp"
+              textareaRows = "3"
+              textareaRequired = true
+              labelText = "Describe your dog's experience with cats."
+            />
+        </div>
+
+        <div class = "one-col-full-width ptop15">
+            <TextAreaDynamicLabel
+              textareaName = "extra-dog-[DOGID]-dont-still-own"
+              textareaId = "extra-dog-[DOGID]-dont-still-own"
+              textareaRows = "3"
+              textareaRequired = true
+              labelText = "Do you still own them? If no, why? If they are deceased, from what?"
+            />
+        </div>
+
+        <div class="col-12 ptop15">
+            <ul class="actions">
+                <li><button class="extra-dog-remove">Remove Dog</button></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <HorizontalRule />
+        </div>
+    </div>
+</template>
+
+<style>
+    .ptop15 {
+        padding-top: 1.5em !important;
+    }
+</style>
+
+<script is:inline>
+    function getRandomId () {
+        return Math.random().toString(36).substring(2);
+    }
+
+    function addDog() {
+        const $extraDogs = document.getElementById("extra-dogs");
+        const $extraDogsTemplate = document.getElementById("extra-dogs-template");
+        const $extraDogsClone = $extraDogsTemplate.content.cloneNode(true);
+
+        const randomId = getRandomId();
+        const eccri = "extra-dog-container-" + randomId;
+        $extraDogsClone
+            .querySelector('.extra-dog-container')
+            .setAttribute('id', eccri);
+
+        $extraDogsClone
+            .querySelector(".extra-dog-remove")
+            .addEventListener('click', function() {
+                document.getElementById(eccri).remove();
+            });
+
+        templateUpdateDogid($extraDogsClone, randomId);
+        templateEventListener($extraDogsClone);
+
+        $extraDogs.appendChild($extraDogsClone);
+    }
+
+    function templateUpdateDogid (fragment, replacement) {
+        fragment
+            .querySelectorAll("input")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("name", function(_, currentAttr) {
+                        return currentAttr.replace("DOGID", replacement);
+                    })
+                    .attr("id", function(_, currentAttr) {
+                        return currentAttr.replace("DOGID", replacement);
+                    });
+            });
+
+        fragment
+            .querySelectorAll("textarea")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("name", function(_, currentAttr) {
+                        return currentAttr.replace("DOGID", replacement);
+                    })
+                    .attr("id", function(_, currentAttr) {
+                        return currentAttr.replace("DOGID", replacement);
+                    });
+            });
+
+        fragment
+            .querySelectorAll("label")
+            .forEach (function(elem) {
+                $(elem)
+                    .attr("for", function(_, currentAttr) {
+                        return currentAttr.replace("DOGID", replacement);
+                    })
+            });
+    }
+
+    function templateEventListener(fragment) {
+        fragment.querySelectorAll('.input-dynamic-label').forEach (function(elem) {
+            elem.addEventListener('input', function() {
+                elem.setAttribute('value', elem.value);
+            })
+        })
+
+        fragment.querySelectorAll('.textarea-dynamic-label').forEach (function(elem) {
+            elem.addEventListener('input', function() {
+                elem.setAttribute('value', elem.value);
+            })
+        })
+    }
+</script>
