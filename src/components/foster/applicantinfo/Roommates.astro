@@ -1,0 +1,35 @@
+---
+import InputDynamicLabel from '../../lib/InputDynamicLabel.astro'
+---
+<style>
+  .roommates {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 700px) {
+    .roommates {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<div class="col-12">
+  <legend>People living with you:</legend>
+  <div class="roommates">
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "other-residents-adults"
+      inputId = "other-residents-adults"
+      inputRequired = false
+      labelText = "Adults:"
+    />
+    <InputDynamicLabel
+      inputType = "text"
+      inputName = "other-residents-children"
+      inputId = "other-residents-children"
+      inputRequired = false
+      labelText = "Children with ages:"
+    />
+  </div>
+</div>

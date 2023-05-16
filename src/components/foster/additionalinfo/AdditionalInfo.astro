@@ -1,0 +1,207 @@
+---
+import Radio from '../../lib/Radio.astro';
+import TextAreaDynamicLabel from '../../lib/TextAreaDynamicLabel.astro';
+
+const provideFoodSupplies = {
+    name: "provide-food-and-supplies",
+    legend: "Are you able to provide food and supplies for the cats(s)?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "provide-food-and-supplies-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "provide-food-and-supplies-no": {
+          value: "no",
+          text: "No"
+        },
+        "provide-food-and-supplies-not-applicable": {
+          value: "not applicable",
+          text: "Not Applicable"
+        },
+    },
+};
+const discussWithHousehold = {
+    name: "discussed-with-household",
+    legend: "Have you discussed fostering with other members of your household?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "discussed-with-household-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "discussed-with-household-no": {
+          value: "no",
+          text: "No"
+        },
+        "discussed-with-household-not-applicable": {
+          value: "not applicable",
+          text: "Not Applicable"
+        },
+    },
+};
+const fosterTransportation = {
+    name: "do-you-have-transportation",
+    legend: "Do you have transportation?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "transportation-available-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "transportation-available-no": {
+          value: "no",
+          text: "No"
+        },
+        "transportation-available-not-applicable": {
+          value: "not applicable",
+          text: "Not Applicable"
+        },
+    },
+};
+const significantChanges = {
+    name: "significant-changes",
+    legend: "Do you see any significant changes in your life in the next 6 months?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "significant-changes-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "significant-changes-no": {
+          value: "no",
+          text: "No"
+        },
+        "significant-changes-not-applicable": {
+          value: "not applicable",
+          text: "Not Applicable"
+        },
+    },
+};
+const roomToIsolateFosters = {
+    name: "room-for-foster-isolation",
+    legend: "Do you have a room to isolate fosters initially (10 to 14 days)?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "room-for-foster-isolation-yes": {
+          value: "yes",
+          text: "Yes"
+        },
+        "room-for-foster-isolation-no": {
+          value: "no",
+          text: "No"
+        },
+        "room-for-foster-isolation-not-applicable": {
+          value: "not applicable",
+          text: "Not Applicable"
+        },
+    },
+};
+---
+<div class="col-12">
+  <h2>Additional Information</h2>
+</div>
+<div class="one-col-full-width">
+  <fieldset required={provideFoodSupplies.required}>
+    <legend>{provideFoodSupplies.legend}<span class={provideFoodSupplies.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(provideFoodSupplies.entries).map((key) =>
+        <Radio
+          divClass = {provideFoodSupplies.divClass}
+          radioName = {provideFoodSupplies.name}
+          radioId = {key}
+          radioValue = {provideFoodSupplies.entries[key].value}
+          radioRequired = {provideFoodSupplies.required}
+          labelText = {provideFoodSupplies.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+<div class="one-col-full-width">
+  <fieldset required={discussWithHousehold.required}>
+    <legend>{discussWithHousehold.legend}<span class={discussWithHousehold.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(discussWithHousehold.entries).map((key) =>
+        <Radio
+          divClass = {discussWithHousehold.divClass}
+          radioName = {discussWithHousehold.name}
+          radioId = {key}
+          radioValue = {discussWithHousehold.entries[key].value}
+          radioRequired = {discussWithHousehold.required}
+          labelText = {discussWithHousehold.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+<div class="one-col-full-width">
+  <fieldset required={fosterTransportation.required}>
+    <legend>{fosterTransportation.legend}<span class={fosterTransportation.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(fosterTransportation.entries).map((key) =>
+        <Radio
+          divClass = {fosterTransportation.divClass}
+          radioName = {fosterTransportation.name}
+          radioId = {key}
+          radioValue = {fosterTransportation.entries[key].value}
+          radioRequired = {fosterTransportation.required}
+          labelText = {fosterTransportation.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+<div class="one-col-full-width">
+  <fieldset required={significantChanges.required}>
+    <legend>{significantChanges.legend}<span class={significantChanges.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(significantChanges.entries).map((key) =>
+        <Radio
+          divClass = {significantChanges.divClass}
+          radioName = {significantChanges.name}
+          radioId = {key}
+          radioValue = {significantChanges.entries[key].value}
+          radioRequired = {significantChanges.required}
+          labelText = {significantChanges.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+<div class="one-col-full-width">
+  <fieldset required={roomToIsolateFosters.required}>
+    <legend>{roomToIsolateFosters.legend}<span class={roomToIsolateFosters.spanClass}></span></legend>
+    <div class = "three-col-full-width">
+      {Object.keys(roomToIsolateFosters.entries).map((key) =>
+        <Radio
+          divClass = {roomToIsolateFosters.divClass}
+          radioName = {roomToIsolateFosters.name}
+          radioId = {key}
+          radioValue = {roomToIsolateFosters.entries[key].value}
+          radioRequired = {roomToIsolateFosters.required}
+          labelText = {roomToIsolateFosters.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
+<div class = "one-col-full-width">
+  <TextAreaDynamicLabel
+    textareaName = "foster-limitations"
+    textareaId = "foster-limitations"
+    textareaRows = "6"
+    textareaRequired = false
+    labelText = "List limitations; if any:"
+  />
+</div>

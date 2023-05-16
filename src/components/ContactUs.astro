@@ -1,3 +1,7 @@
+---
+import TextAreaDynamicLabel from '../components/lib/TextAreaDynamicLabel.astro';
+import InputDynamicLabel from '../components/lib/InputDynamicLabel.astro'
+---
 <!-- Contact -->
 <style>
   #main > header {
@@ -21,14 +25,30 @@
         <form name="contact" method="POST" data-netlify="true">
             <div class="row gtr-uniform">
                 <input type="hidden" name="subject" value="contact" />
-                <div class="col-6 col-12-xsmall">
-                    <input type="text" name="name" id="name" value="" placeholder="Name" required />
+                <div class = "two-col-full-width">
+                  <InputDynamicLabel
+                    inputType = "text"
+                    inputName = "contact-name"
+                    inputId = "contact-name"
+                    inputRequired = true
+                    labelText = "Name"
+                  />
+                  <InputDynamicLabel
+                    inputType = "email"
+                    inputName = "contact-email"
+                    inputId = "contact-email"
+                    inputRequired = true
+                    labelText = "Email"
+                  />           
                 </div>
-                <div class="col-6 col-12-xsmall">
-                    <input type="email" name="email" id="email" value="" placeholder="Email" required />
-                </div>
-                <div class="col-12">
-                    <textarea name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
+                <div class = "one-col-full-width">
+                  <TextAreaDynamicLabel
+                    textareaName = "contact-message"
+                    textareaId = "contact-message"
+                    textareaRows = "6"
+                    textareaRequired = false
+                    labelText = "Your Message"
+                  />
                 </div>
                 <div class="col-12">
                     <ul class="actions">

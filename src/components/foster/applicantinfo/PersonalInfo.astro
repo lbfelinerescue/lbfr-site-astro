@@ -1,0 +1,38 @@
+---
+import InputDynamicLabel from '../../lib/InputDynamicLabel.astro';
+---
+<div class="col-12">
+  <h2>About you</h2>
+</div>
+<div class = "two-col-full-width">
+  <InputDynamicLabel
+    inputType = "text"
+    inputName = "applicant-name"
+    inputId = "applicant-name"
+    inputRequired = true
+    labelText = "Applicant Name"
+  />
+  <InputDynamicLabel
+    inputType = "text"
+    inputName = "applicant-occupation"
+    inputId = "applicant-occupation"
+    inputRequired = true
+    labelText = "Applicant Occupation"
+  />
+  <InputDynamicLabel
+    inputType = "email"
+    inputName = "applicant-email"
+    inputId = "applicant-email"
+    inputRequired = true
+    labelText = "Applicant Email"
+  />
+  <InputDynamicLabel
+    inputType = "tel"
+    inputName = "applicant-phone"
+    inputId = "applicant-phone"
+    inputRequired = true
+    inputMaxlength = "12"
+    inputPattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}"
+    labelText = "Applicant Phone Number"
+  />
+</div>
