@@ -1,0 +1,97 @@
+---
+import Radio from '../lib/Radio.astro';
+import InputDynamicLabel from '../lib/InputDynamicLabel.astro';
+import HorizontalRule from '../lib/HorizontalRule.astro';
+
+const availability = {
+    name: "best-time-to-call",
+    legend: "What is the best time to call you?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+      "best-time-to-call-morning": {
+        value: "morning",
+        text: "Morning"
+      },
+      "best-time-to-call-afternoon": {
+        value: "afternoon",
+        text: "Afternoon"
+      },
+      "best-time-to-call-evening": {
+        value: "evening",
+        text: "Evening"
+      },
+      "best-time-to-call-weekend": {
+        value: "weekend",
+        text: "Weekend"
+      },
+    },
+};
+---
+<style>
+  .four-col-full-width {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media screen and (max-width: 700px) {
+    .four-col-full-width {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<HorizontalRule />
+<div class="col-12">
+  <h2>About you</h2>
+</div>
+<div class = "two-col-full-width">
+  <InputDynamicLabel
+    inputType = "text"
+    inputName = "applicant-name"
+    inputId = "applicant-name"
+    inputRequired = true
+    labelText = "Applicant Name"
+  />
+  <InputDynamicLabel
+    inputType = "text"
+    inputName = "applicant-occupation"
+    inputId = "applicant-occupation"
+    inputRequired = true
+    labelText = "Applicant Occupation"
+  />
+  <InputDynamicLabel
+    inputType = "email"
+    inputName = "applicant-email"
+    inputId = "applicant-email"
+    inputRequired = true
+    labelText = "Applicant Email"
+  />
+  <InputDynamicLabel
+    inputType = "tel"
+    inputName = "applicant-phone"
+    inputId = "applicant-phone"
+    inputRequired = true
+    inputMaxlength = "12"
+    inputPattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}"
+    labelText = "Applicant Phone Number"
+  />
+</div>
+<div class="one-col-full-width">
+  <fieldset required={availability.required}>
+    <legend>{availability.legend}<span class={availability.spanClass}></span></legend>
+    <div class = "four-col-full-width">
+      {Object.keys(availability.entries).map((key) =>
+        <Radio
+          divClass = {availability.divClass}
+          radioName = {availability.name}
+          radioId = {key}
+          radioValue = {availability.entries[key].value}
+          radioRequired = {availability.required}
+          labelText = {availability.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>

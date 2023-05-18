@@ -1,1 +1,30 @@
-<h1>This is a test</h1>
+---
+import Notice from './VolunteerNotice.astro';
+import PersonalInfo from './personalinformation.astro'
+import ResidenceInfo from './residenceinfo.astro'
+import AreasOfInterest from './areasofinterest.astro'
+import AdditionalInfo from './additionalinfo.astro'
+import Signature from './Signature.astro'
+---
+<!-- Volunteer Form -->
+<section>
+  <div class="inner">
+      <form id="volunteer-form" name="volunteer" method="POST" data-netlify="true">
+          <div class="row gtr-uniform">
+              <input type="hidden" name="subject" value="volunteer" />
+              <Notice />
+              <PersonalInfo />
+              <ResidenceInfo />
+              <AreasOfInterest />
+              <AdditionalInfo />
+              <Signature />
+              <div class="col-12">
+                  <ul class="actions">
+                      <li><input type="submit" value="Send" class="primary" /></li>
+                      <li><input type="button" value="Reset" onclick="dynamicInputReset();" /></li>
+                  </ul>
+              </div>
+          </div>
+      </form>
+  </div>
+</section>
