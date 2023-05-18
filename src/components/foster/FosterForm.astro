@@ -4,38 +4,27 @@ import PersonalInfo from './applicantinfo/PersonalInfo.astro'
 import FosterInterest from './fosterinterest/FosterInterest.astro'
 import ResidenceInfo from './applicantinfo/ResidenceInfo.astro'
 import AdditionalInfo from './additionalinfo/AdditionalInfo.astro'
-import Signature from '../adopt/Signature.astro'
+import Signature from './Signature.astro'
 ---
-<style>
-  .foster-form {
-    width: 90%;
-    margin: auto;
-  }
-</style>
 <!-- Foster Form -->
-<div id="foster-form" style="background-color: black;">
-  <h2 style="text-align: center; padding: 60px; color: white">FOSTER FORM</h2>
-</div>
-<div class="foster-form">
-  <section>
-    <div class="inner">
-        <form id="foster-form" name="foster" method="POST" data-netlify="true">
-            <div class="row gtr-uniform">
-                <input type="hidden" name="subject" value="adoption" />
-                <Notice />
-                <PersonalInfo />
-                <FosterInterest />
-                <ResidenceInfo />
-                <AdditionalInfo />
-                <Signature />
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="submit" value="Send" class="primary" /></li>
-                        <li><input type="button" value="Reset" onclick="dynamicInputReset();" /></li>
-                    </ul>
-                </div>
-            </div>
-        </form>
-    </div>
-  </section>
-</div>
+<section>
+  <div class="inner">
+      <form id="foster-form" name="foster" method="POST" data-netlify="true">
+          <div class="row gtr-uniform">
+              <input type="hidden" name="subject" value="foster" />
+              <Notice />
+              <PersonalInfo />
+              <FosterInterest />
+              <ResidenceInfo />
+              <AdditionalInfo />
+              <Signature />
+              <div class="col-12">
+                  <ul class="actions">
+                      <li><input type="submit" value="Send" class="primary" /></li>
+                      <li><input type="button" value="Reset" onclick="dynamicInputReset();" /></li>
+                  </ul>
+              </div>
+          </div>
+      </form>
+  </div>
+</section>

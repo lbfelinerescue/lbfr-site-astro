@@ -1,0 +1,69 @@
+---
+---
+<style>
+  canvas#signature-pad {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+  }
+  </style>
+  <div class="col-12">
+    <h2>Signature</h2>
+    <p>
+      I have read the above information carefully and have filled out this application honestly.  I understand that Long Beach Felines reserves the right to decline my application for any reason.  If an omission or untruth is discovered after the adoption is completed, I understand and accept that the foster has the right to annul the adoption and reclaim the cat.  I release Long Beach Felines from any liability and/or responsibility from any damage a cat may cause me during the adoption process.
+    </p>
+    <p>
+      This application becomes part of our contract.
+    </p>
+  </div>
+  
+  <div class="col-4 col-12-xsmall">
+    <input type="date" id="signature-date" name="signature-date">
+  </div>
+  
+  <div class="col-12">
+    <input type="hidden" name="signature" id="hidden-signature">
+    <canvas id="signature-pad" width="600" height="400"></canvas>
+  </div>
+  <div class="col-12">
+    <ul class="actions">
+      <li>
+        <input id="clear-signature" type="button" value="Clear">
+      </li>
+    </ul>
+  </div>
+  <script>
+      import SignaturePad from 'signature_pad';
+      var canvas = document.getElementById("signature-pad");
+  
+      function resizeCanvas() {
+          var ratio = Math.max(window.devicePixelRatio || 1, 1);
+          canvas.width = canvas.offsetWidth * ratio;
+          canvas.height = canvas.offsetHeight * ratio;
+          canvas.getContext("2d").scale(ratio, ratio);
+          signaturePad.clear();
+      }
+  
+      var signaturePad = new SignaturePad(canvas, {
+          backgroundColor: "#f5f5f5"
+      });
+  
+      document
+      .getElementById("clear-signature")
+      .addEventListener('click', function(){
+          signaturePad.clear();
+      })
+  
+      function updateSignatureValue() {
+          document.getElementById('hidden-signature').value = signaturePad.toDataURL();
+      }
+  
+      document
+      .getElementById('foster-form')
+      .addEventListener('submit', updateSignatureValue, true);
+  
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+  </script>
+  
