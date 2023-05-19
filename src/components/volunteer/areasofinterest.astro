@@ -1,0 +1,105 @@
+---
+import Checkbox from '../lib/Checkbox.astro';
+import HorizontalRule from '../lib/HorizontalRule.astro';
+import TextAreaDynamicLabel from '../lib/TextAreaDynamicLabel.astro';
+
+
+const volunteerInterests = {
+    name: "areas-of-interest-volunteer",
+    legend: "Please check all the areas which interest you:",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+      "volunteer-interest-fundraising": {
+          value: "Fundraising and development",
+          text: "Fundraising and development"
+        },
+        "volunteer-interest-grant-writing": {
+          value: "Grant writing",
+          text: "Grant writing"
+        },
+        "volunteer-interest-socializing-cats": {
+          value: "Socializing cats at foster homes",
+          text: "Socializing cats at foster homes"
+        },
+        "volunteer-interest-medical-coordinator": {
+          value: "Medical Coordinator",
+          text: "Medical Coordinator - must have vet medical knowledge"
+        },
+        "volunteer-interest-transport": {
+          value: "Transporting cats/supplies",
+          text: "Transporting cats/supplies"
+        },
+        "volunteer-interest-publicity": {
+          value: "Publicity and advertising",
+          text: "Publicity and advertising"
+        },
+        "volunteer-interest-digital-production": {
+          value: "Digital photo and video production",
+          text: "Digital photo and video production"
+        },
+        "volunteer-interest-deliver-advertising": {
+          value: "Deliver and post advertising to vets/pet stores",
+          text: "Deliver and post advertising to vets/pet stores"
+        },
+        "volunteer-interest-volunteer-coordination": {
+          value: "Volunteer coordination",
+          text: "Volunteer coordination"
+        },
+        "volunteer-interest-paperwork": {
+          value: "Paperwork",
+          text: "Paperwork"
+        },
+        "volunteer-interest-data-entry": {
+          value: "Data entry",
+          text: "Data entry"
+        },
+        "volunteer-interest-social-media": {
+          value: "Facebook and other social media",
+          text: "Facebook and other social media"
+        },
+        "volunteer-interest-point-of-contact": {
+          value: "Phones - point of contact",
+          text: "Phones - point of contact"
+        },
+        "volunteer-interest-fostering": {
+          value: "Fostering",
+          text: "Fostering"
+        },
+    },
+};
+
+const onchange = `validateCheckbox('${volunteerInterests.name}')`;
+---
+<HorizontalRule />
+<div class="col-12">
+    <h2>Areas of Interest</h2>
+</div>
+<div class="col-12">
+  <fieldset required={volunteerInterests.required}>
+    <legend>{volunteerInterests.legend}<span class={volunteerInterests.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(volunteerInterests.entries).map((key) =>
+        <Checkbox
+          divClass = {volunteerInterests.divClass}
+          checkboxName = {volunteerInterests.name}
+          checkboxId = {key}
+          checkboxValue = {volunteerInterests.entries[key].value}
+          checkboxRequired = {volunteerInterests.required}
+          checkboxOnchange = {onchange}
+          labelText = {volunteerInterests.entries[key].text}
+        />
+      )}
+    </div>
+    <div class = "one-col-full-width">
+      <TextAreaDynamicLabel
+        textareaName = "volunteer-additional-interests"
+        textareaId = "volunteer-additional-interests"
+        textareaRows = "4"
+        textareaRequired = false
+        labelText = "Additional areas of interest:"
+      />
+    </div>
+  </fieldset>
+</div>

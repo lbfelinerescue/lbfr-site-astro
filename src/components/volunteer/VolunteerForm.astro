@@ -1,21 +1,21 @@
 ---
-import Notice from './FosterNotice.astro';
-import PersonalInfo from './applicantinfo/PersonalInfo.astro'
-import FosterInterest from './fosterinterest/FosterInterest.astro'
-import ResidenceInfo from './applicantinfo/ResidenceInfo.astro'
-import AdditionalInfo from './additionalinfo/AdditionalInfo.astro'
+import Notice from './VolunteerNotice.astro';
+import PersonalInfo from './personalinformation.astro'
+import ResidenceInfo from './residenceinfo.astro'
+import AreasOfInterest from './areasofinterest.astro'
+import AdditionalInfo from './additionalinfo.astro'
 import Signature from './Signature.astro'
 ---
-<!-- Foster Form -->
+<!-- Volunteer Form -->
 <section>
   <div class="inner">
-      <form id="foster-form" name="foster" method="POST" data-netlify="true">
+      <form id="volunteer-form" name="volunteer" method="POST" data-netlify="true">
           <div class="row gtr-uniform">
-              <input type="hidden" name="subject" value="foster" />
+              <input type="hidden" name="subject" value="volunteer" />
               <Notice />
               <PersonalInfo />
-              <FosterInterest />
               <ResidenceInfo />
+              <AreasOfInterest />
               <AdditionalInfo />
               <Signature />
               <div class="col-12">

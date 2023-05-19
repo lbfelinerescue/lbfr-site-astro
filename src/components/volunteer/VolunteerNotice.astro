@@ -1,0 +1,42 @@
+---
+import Checkbox from '../lib/Checkbox.astro';
+
+const notice = {
+    name: "volunteer-notice",
+    legend: "Check the box below",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "volunteer-notice": {
+          value: "notice acknowledged",
+          text: "I acknowledge that I have read the above paragraph and understand the terms of Volunteering."
+        },
+    },
+};
+const onchange = `validateCheckbox('${notice.name}')`;
+---
+<div class="col-12">
+  <h2>Notice</h2>
+  <p>
+    Please take time to consider your intentions before submitting this application to volunteer!<br/>
+    8 out of 10 applicants end up not communicating with us when we try to reach them. If you're uncertain, please <a href="/index.html#main">send us a message</a> and we can clairfy your concerns before submitting this application.<br/>
+    We really want you to come on board with us - we need your help and hope that you decide to commit!
+  </p>
+  <fieldset required={notice.required}>
+    <legend>{notice.legend}<span class={notice.spanClass}></span></legend>
+    <div class = "one-col-full-width">
+      {Object.keys(notice.entries).map((key) =>
+        <Checkbox
+          divClass = {notice.divClass}
+          checkboxName = {notice.name}
+          checkboxId = {key}
+          checkboxValue = {notice.entries[key].value}
+          checkboxRequired = {notice.required}
+          checkboxOnchange = {onchange}
+          labelText = {notice.entries[key].text}
+        />
+      )}
+    </div>
+  </fieldset>
+</div>
