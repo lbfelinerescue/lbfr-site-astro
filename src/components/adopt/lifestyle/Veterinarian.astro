@@ -1,0 +1,46 @@
+---
+import Radio from '../../lib/Radio.astro';
+import TextAreaDynamicLabel from '../../lib/TextAreaDynamicLabel.astro';
+
+const haveVet = {
+    name: "have-vet",
+    legend: "Do you currently have a veterinarian?",
+    divClass: "col-6",
+    required: "true",
+    spanClass: "validity",
+    entries: {
+        "have-vet-yes": {
+          value: "Yes",
+          text: "Yes"
+        },
+        "have-vet-no": {
+          value: "No",
+          text: "No"
+        },
+    },
+};
+---
+<div class="one-col-full-width">
+  <fieldset required={haveVet.required}>
+    <legend>{haveVet.legend}<span class={haveVet.spanClass}></span></legend>
+    <div class = "two-col-full-width">
+      {Object.keys(haveVet.entries).map((key) =>
+        <Radio
+          divClass = {haveVet.divClass}
+          radioName = {haveVet.name}
+          radioId = {key}
+          radioValue = {haveVet.entries[key].value}
+          radioRequired = {haveVet.required}
+          labelText = {haveVet.entries[key].text}
+        />
+      )}
+    </div>
+    <TextAreaDynamicLabel
+      textareaName = "has-vet-name-addr"
+      textareaId = "has-vet-name-addr"
+      textareaRows = "3"
+      textareaRequired = false
+      labelText = "If so, what is the vet's name & address?"
+    />
+  </fieldset>
+</div>
