@@ -1,13 +1,14 @@
 ---
 export interface Props {
   imageSrc: string;
+  imageAlt: string;
   header: string;
   href: string;
 }
-const { imageSrc, header, href } = Astro.props;
+const { imageSrc, header, href, imageAlt } = Astro.props;
 ---
 <section class="spotlight">
-    <div class="image"><img src={imageSrc} alt="" /></div><div class="content">
+    <div class="image"><img src={imageSrc} alt={imageAlt} /></div><div class="content">
         <h2>
             <a href={href}>
                 {header}

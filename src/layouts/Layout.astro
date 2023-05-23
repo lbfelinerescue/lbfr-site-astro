@@ -7,7 +7,6 @@ import '../styles/main.scss';
 import '../styles/forms.css';
 
 import Header from '../components/Header.astro';
-// import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
 import Scripts from '../components/Scripts.astro';
 import Contact from '../components/ContactUs.astro';
@@ -30,11 +29,11 @@ import websitemeta from "../websitemeta"
     </head>
     <style>
       #page-wrapper {
-        background-image: url("/images/hero.jpg");
+        background-image: url("/images/banner.jpg");
         background-size: cover;
-        background-position-y: 10%;
         background-attachment: fixed;
         background-repeat: no-repeat;
+        padding: 0
       }
     </style>
     <body class="is-preload">
@@ -49,12 +48,3 @@ import websitemeta from "../websitemeta"
         <FormScripts />
     </body>
 </html>
-<style>
-  #page-wrapper {
-    background-image: url("/images/banner.jpg");
-    background-size: cover;
-    background-position-y: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-</style>

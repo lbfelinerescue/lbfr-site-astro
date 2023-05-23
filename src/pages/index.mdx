@@ -1,0 +1,35 @@
+---
+layout: '../layouts/Layout.astro'
+title: Home Page
+bannerTitle: Long Beach Feline Rescue ❤️
+bannerText: Giving cats and kittens a second chance
+---
+import Layout from '../layouts/Layout.astro';
+import Banner from '../components/Banner.astro';
+import One from '../components/One.astro';
+import Three from '../components/Three.astro';
+import Spotlight from "../components/Spotlight.astro";
+import SpotlightContainer from "../components/SpotlightContainer.astro";
+
+<Layout title="Cats!">
+    <Banner>
+        <h2>Long Beach Feline Rescue ❤️</h2>
+        <p>Giving cats and kittens a second chance</p>
+        <ul class="actions special">
+            <li><a href="/donate" class="button primary">Donate</a></li>
+        </ul>
+    </Banner> 
+    <One />
+    <SpotlightContainer>
+      <Spotlight imageSrc="images/home_pic01.webp" header="Our Mission" text="Our Mission">
+        We're a non-profit organization dedicated to rescuing, protecting, and finding loving homes for stray, abandoned, neglected, and abused kittens and cats. We strive to bring cats and humans together in a loving union and promote the joys of the feline-human bond!
+      </Spotlight>
+      <Spotlight imageSrc="images/home_pic02.jpg" header="Donate" text="Donate">
+        You can help Long Beach Felines improve the lives of homeless cats and kittens by donating via our donations page.<br/> Donations go toward providing proper veterinary care, food, shelter and supplies for the many rescue cats that come through our doors.
+      </Spotlight>
+      <Spotlight imageSrc="images/home_pic03.webp" header="Who We Are" text="Who We Are">
+        Long Beach Felines is an all-volunteer organization formalized in 2008 as a 501(c)(3) non-profit. We have no paid staff and receive no government funding.  We rely on fundraising efforts and private donations to support our cause and provide food, supplies and medical care for our cats. We are a no-kill organization that only euthanizes cats when it is medically deemed the only humane option.
+      </Spotlight>
+    </SpotlightContainer>
+    <Three />
+</Layout>

@@ -1,8 +1,8 @@
 ---
 title: Feline Immunodeficiency Virus (FIV)
 publishedDate: 2023-04-18
-image:
-  src: '/images/pic03.jpg'
+imageSrc: /images/fiv_pic.jpg
+imageAlt: Black and white cat sitting on a blanket
 ---
 
 Feline Immunodeficiency Virus (FIV) is a viral disease that affects cats worldwide. It is similar to the human immunodeficiency virus (HIV), which causes acquired immunodeficiency syndrome (AIDS) in humans. FIV weakens a cat's immune system, making it more susceptible to other infections and illnesses. This article will provide an overview of FIV, how it causes disease, how it is transmitted, how it is diagnosed, and how we can protect our cats from contracting FIV.
