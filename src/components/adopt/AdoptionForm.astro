@@ -34,3 +34,29 @@ import Signature from './Signature.astro';
         </form>
     </div>
 </section>
+<script is:inline>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', handleSubmit);
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        const data = new FormData(event.target);
+
+        const allExtraCatKeys = Array.from(data.keys()).filter(key => /extra-cat-/.test(key));
+        const regExp = /\[([^\]]+)\]/;
+        const uniqueExtraCatIds = [... new Set(allExtraCatKeys.map(elem => elem.match(regExp)[1]))];
+
+        const uniqueExtraCatKeys = [... new Set(allExtraCatKeys.map(elem => elem.match(regExp)[1]))];
+
+        let extraCats = {};
+        uniqueExtraCatKeys.forEach(catId => {
+            let catKeys = (allExtraCatKeys.filter(key => RegExp(`${catId}`).test(key)));
+            extraCats[catId] = {};
+            catKeys.forEach(elem => extraCats[catId][elem] = data.get(elem))
+        })
+
+        const extraCatsStringified = JSON.stringify(extraCats);
+        console.log(extraCatsStringified);
+    }
+</script>
