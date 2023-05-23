@@ -44,30 +44,27 @@ import Signature from './Signature.astro';
         handleExtraAnimal($event, "cat");
         handleExtraAnimal($event, "dog");
         $event.currentTarget.submit();
-
     }
 
     function handleExtraAnimal($event, animalType) {
         const $data = new FormData($event.target);
 
-        const $allExtraCatKeys = Array.from($data.keys()).filter(key => RegExp(`extra-${animalType}-`).test(key));
+        const $allExtraAnimalKeys = Array.from($data.keys()).filter(key => RegExp(`extra-${animalType}-`).test(key));
         const $regExp = /\[([^\]]+)\]/;
-        console.log($allExtraCatKeys)
-        const $uniqueExtraCatIds = [... new Set($allExtraCatKeys.map(elem => elem.match($regExp)[1]))];
+        const $uniqueExtraAnimalIds = [... new Set($allExtraAnimalKeys.map(elem => elem.match($regExp)[1]))];
 
-        const $uniqueExtraCatKeys = [... new Set($allExtraCatKeys.map(elem => elem.match($regExp)[1]))];
+        const $uniqueExtraAnimalKeys = [... new Set($allExtraAnimalKeys.map(elem => elem.match($regExp)[1]))];
 
-        let $extraCats = {};
-        $uniqueExtraCatKeys.forEach(catId => {
-            let $catKeys = ($allExtraCatKeys.filter(key => RegExp(`${catId}`).test(key)));
-            $extraCats[catId] = {};
-            $catKeys.forEach(elem => $extraCats[catId][elem] = $data.get(elem))
+        let $extraAnimals = {};
+        $uniqueExtraAnimalKeys.forEach(animalId => {
+            let $animalKeys = ($allExtraAnimalKeys.filter(key => RegExp(`${animalId}`).test(key)));
+            $extraAnimals[animalId] = {};
+            $animalKeys.forEach(elem => $extraAnimals[animalId][elem] = $data.get(elem))
         })
 
-        const $extraCatsStringified = JSON.stringify($extraCats);
+        const $extraAnimalsStringified = JSON.stringify($extraAnimals);
 
-        const $extraCatsSecret = $(`input[name=extra-${animalType}s-secret]`);
-        $extraCatsSecret.val($extraCatsStringified);
-        console.log($extraCatsStringified);
+        const $extraAnimalsSecret = $(`input[name=extra-${animalType}s-secret]`);
+        $extraAnimalsSecret.val($extraAnimalsStringified);
     }
 </script>
