@@ -41,11 +41,18 @@ import Signature from './Signature.astro';
 
     function handleSubmit($event) {
         $event.preventDefault();
+        handleExtraAnimal($event, "cat");
+        handleExtraAnimal($event, "dog");
+        $event.currentTarget.submit();
 
-        const $data = new FormData(event.target);
+    }
 
-        const $allExtraCatKeys = Array.from($data.keys()).filter(key => /extra-cat-/.test(key));
+    function handleExtraAnimal($event, animalType) {
+        const $data = new FormData($event.target);
+
+        const $allExtraCatKeys = Array.from($data.keys()).filter(key => RegExp(`extra-${animalType}-`).test(key));
         const $regExp = /\[([^\]]+)\]/;
+        console.log($allExtraCatKeys)
         const $uniqueExtraCatIds = [... new Set($allExtraCatKeys.map(elem => elem.match($regExp)[1]))];
 
         const $uniqueExtraCatKeys = [... new Set($allExtraCatKeys.map(elem => elem.match($regExp)[1]))];
@@ -58,6 +65,9 @@ import Signature from './Signature.astro';
         })
 
         const $extraCatsStringified = JSON.stringify($extraCats);
+
+        const $extraCatsSecret = $(`input[name=extra-${animalType}s-secret]`);
+        $extraCatsSecret.val($extraCatsStringified);
         console.log($extraCatsStringified);
     }
 </script>
