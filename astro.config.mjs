@@ -24,6 +24,7 @@ export default defineConfig({
             folder: 'src/pages',
             create: true,
             delete: true,
+            filter: {field: "isForm", value: false},
             fields: [
               { name: 'title', widget: 'string', label: 'Post Title' },
               { name: 'layout', widget: 'string', label: 'Post Layout' },
