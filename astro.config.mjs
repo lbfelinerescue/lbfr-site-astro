@@ -26,10 +26,9 @@ export default defineConfig({
             delete: true,
             filter: {field: "isForm", value: false},
             fields: [
-              { name: 'title', widget: 'string', label: 'Post Title' },
-              { name: 'layout', widget: 'string', label: 'Post Layout' },
-              { name: 'bannerTitle', widget: 'string', label: 'Banner Title' },
-              { name: 'bannerText', widget: 'string', label: 'Banner Text' },
+              { name: 'imageOne', widget: 'image', label: 'Image One' },
+              { name: 'imageTwo', widget: 'image', label: 'Image Two' },
+              { name: 'imageThree', widget: 'image', label: 'Image Three' },
               { name: 'body', widget: 'markdown', label: 'Post Body' },
             ],
           },

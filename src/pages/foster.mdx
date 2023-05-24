@@ -4,13 +4,16 @@ title: Foster Page
 bannerTitle: Foster ❤️
 bannerText: Provide a safe space for cats awaiting adoption
 isForm: false
+imageOne: foster_pic01.jpg
+imageTwo: foster_pic02.jpg
+imageThree: foster_pic03.jpg
 ---
 import Spotlight from "../components/Spotlight.astro";
 import SpotlightContainer from "../components/SpotlightContainer.astro";
 
 <SpotlightContainer>
     <Spotlight
-        imageSrc="/images/foster_pic01.jpg"
+        imageSrc={`/images/${frontmatter.imageOne}`}
         header="Fostering a cat"
     >
         If you enjoy spending time with cats and are interested in helping homeless cats, then fostering one in your home may be a good option for you. You get to experience the joy of spending time with a pet. It teaches children compassion and the importance of treating animals with kindness.
