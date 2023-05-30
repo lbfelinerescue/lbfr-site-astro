@@ -14,22 +14,24 @@ export default defineConfig({
           branch: 'main',
         },
         search: false,
+        editor: {
+          preview: false
+        },
         collections: [
           {
             name: 'pages',
             description: 'Pages of the LB feline rescue website',
             extension: 'mdx',
             format: 'frontmatter',
-            label: 'Navigation Pages',
+            label: 'Edit Images',
             folder: 'src/pages',
             create: true,
             delete: true,
-            filter: {field: "isForm", value: false},
+            filter: {field: "hasEditableImages", value: true},
             fields: [
               { name: 'imageOne', widget: 'image', label: 'Image One' },
               { name: 'imageTwo', widget: 'image', label: 'Image Two' },
               { name: 'imageThree', widget: 'image', label: 'Image Three' },
-              { name: 'body', widget: 'markdown', label: 'Post Body' },
             ],
           },
           {

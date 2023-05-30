@@ -3,29 +3,29 @@ layout: '../layouts/Two.astro'
 title: Adopt Page
 bannerTitle: Adopt ❤️
 bannerText: Find your purr-fect match
-isForm: true
-imageOne: 
-imageTwo:
-imageThree:
+hasEditableImages: true
+imageOne: /images/adopt_pic01.jpg
+imageTwo: /images/adopt_pic02.jpg
+imageThree: /images/adopt_pic03.jpg
 ---
 import Spotlight from "../components/Spotlight.astro";
 import SpotlightContainer from "../components/SpotlightContainer.astro";
 
 <SpotlightContainer>
     <Spotlight
-        imageSrc="/images/pic01.jpg"
+        imageSrc= {`${frontmatter.imageOne}`}
         header="Getting Started"
     >
     All of our adoptable kitties are happily living at the <a href='https://www.felinegoodsocialclub.com/'>Feline Good Social Club Lounge</a> in comfort and safety.  You can view them <a href='https://www.canva.com/design/DAEhG7_cWcg/50e9Bo-YecCHVsqyFTykyQ/view'>here</a>.<br/> The really great part of this new arrangement is that you can meet and spend time with our kitties in their 'Happy Place.'  You'll get to know exactly who each kitty is before you decide who to adopt.
     </Spotlight>
     <Spotlight
-        imageSrc="/images/pic02.jpg"
+        imageSrc= {`${frontmatter.imageTwo}`}
         header="Application"
     >
         If you're ready to adopt, you can start the process by filling out our online <a href='/adoption-form.html'>Adoption Questionnaire</a>. This helps ensure that the cat you've chosen will fit in well with your household and family.
     </Spotlight>
     <Spotlight
-        imageSrc="/images/pic03.jpg"
+        imageSrc= {`${frontmatter.imageThree}`}
         header="Details"
     >
         Every cat and kitten adopted through Long Beach Felines is vaccinated, spayed/neutered, dewormed, tested for Feline Leukemia & FIV and microchipped.
