@@ -2,7 +2,6 @@
 import CatCare from '../../layouts/CatCare.astro';
 import SpotlightWithLink from "../../components/SpotlightWithLink.astro";
 import SpotlightContainer from "../../components/SpotlightContainer.astro";
-import websitemeta from "../../websitemeta"
 import { getCollection } from 'astro:content';
 
 const blogEntries = await getCollection('catcare');
@@ -12,7 +11,7 @@ function summarize (body) {
 }
 ---
 <CatCare
-    title={websitemeta.title}
+    title="Long Beach Feline Rescue"
     bannerTitle="Cat Care ❤️"
     bannerText="Feline Good: A Blog About Caring for Your Furry Friend"
 >
