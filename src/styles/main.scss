@@ -124,7 +124,7 @@
 	}
 
 	body, input, select, textarea {
-		color: _palette(fg);
+		color: black;
 		font-family: _font(family);
 		font-size: 15pt;
 		font-weight: _font(weight);
@@ -377,7 +377,7 @@
 	}
 
 	label {
-		color: _palette(fg-bold);
+		color: black;
 		display: block;
 		font-size: 0.9em;
 		font-weight: _font(weight-bold);
@@ -913,8 +913,8 @@
 		background-color: transparent;
 		border-radius: 3px;
 		border: 0;
-		box-shadow: inset 0 0 0 2px _palette(border);
-		color: _palette(fg-bold);
+		box-shadow: inset 0 0 0 2px gray;
+		color: black;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
