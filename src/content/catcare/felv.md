@@ -1,8 +1,8 @@
 ---
 title: Feline Leukemia Virus (FeLV)
 publishedDate: 2023-04-20
-image:
-  src: '/images/pic02.jpg'
+imageSrc: /images/felv_pic.jpg
+imageAlt: Light Brown cat sleeping on a gray cat bed
 ---
 
 

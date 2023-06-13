@@ -2,10 +2,9 @@
 import CatCare from '../../layouts/CatCare.astro';
 import SpotlightWithLink from "../../components/SpotlightWithLink.astro";
 import SpotlightContainer from "../../components/SpotlightContainer.astro";
-
 import websitemeta from "../../websitemeta"
-
 import { getCollection } from 'astro:content';
+
 const blogEntries = await getCollection('catcare');
 
 function summarize (body) {
@@ -20,7 +19,8 @@ function summarize (body) {
     <SpotlightContainer>
         {blogEntries.map(blogPostEntry => (
             <SpotlightWithLink
-                imageSrc={blogPostEntry.data.image.src}
+                imageSrc={blogPostEntry.data.imageSrc}
+                imageAlt={blogPostEntry.data.imageAlt}
                 header={blogPostEntry.data.title}
                 href={`/catcare/${blogPostEntry.slug}`}
             >

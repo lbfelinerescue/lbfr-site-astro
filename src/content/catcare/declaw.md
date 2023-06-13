@@ -1,8 +1,8 @@
 ---
 title: Why you should not declaw your cat.
 publishedDate: 2023-04-19
-image:
-  src: '/images/pic01.jpg'
+imageSrc: /images/declaw_pic.jpg
+imageAlt: Two cats sleeping on a pink cat bed
 ---
 
 Cats are wonderful pets that offer companionship, love, and entertainment to their owners. However, one of the most controversial topics in the feline world is declawing. Declawing is the process of removing a cat's claws surgically, and it has been a common practice for many years. Although it might seem like an easy solution for unwanted scratching, there are several reasons why you should not declaw your cat.
