@@ -34,3 +34,40 @@ import Signature from './Signature.astro';
         </form>
     </div>
 </section>
+<script is:inline src="/assets/js/jquery.min.js"></script>
+<script is:inline>
+    const $form = $('form');
+    $form.on('submit', handleSubmit);
+
+    function handleSubmit($event) {
+        $event.preventDefault();
+        handleExtraAnimal($event, "cat");
+        handleExtraAnimal($event, "dog");
+        $event.currentTarget.submit();
+    }
+
+    function handleExtraAnimal($event, animalType) {
+        const $data = new FormData($event.target);
+
+        const $allExtraAnimalKeys = Array.from($data.keys()).filter(key => RegExp(`extra-${animalType}-`).test(key));
+        const $regExp = /\[([^\]]+)\]/;
+        const $uniqueExtraAnimalKeys = [... new Set($allExtraAnimalKeys.map(elem => elem.match($regExp)[1]))];
+
+        let $extraAnimals = {};
+        $uniqueExtraAnimalKeys.forEach(animalId => {
+            let $animalKeys = ($allExtraAnimalKeys.filter(key => RegExp(`${animalId}`).test(key)));
+            $extraAnimals[animalId] = {};
+            $animalKeys.forEach(extraCatField => {
+                let newField = extraCatField.replace(/\[([^\]]+)\]-/, "");
+                return $extraAnimals[animalId][newField] = $data.get(extraCatField);
+            })
+            $extraAnimals[animalId]["extra-cat-id"] = animalId;
+        })
+        let $extraAnimalsArray = Object.keys($extraAnimals).map(function(_) {return $extraAnimals[_]});
+
+        const $extraAnimalsStringified = JSON.stringify($extraAnimalsArray);
+
+        const $extraAnimalsSecret = $(`input[name=extra-${animalType}s-secret]`);
+        $extraAnimalsSecret.val($extraAnimalsStringified);
+    }
+</script>
