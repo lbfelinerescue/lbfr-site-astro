@@ -58,3 +58,13 @@ function validateCheckbox (name) {
     }
 }
 </script>
+<script>
+  import { AsYouType } from 'libphonenumber-js';
+
+  document.querySelectorAll('input[type=tel]').forEach(elem => {
+    elem.addEventListener('input', function() {
+      const asYouType = new AsYouType("US");
+      elem.value = asYouType.input(elem.value);
+    });
+  });
+</script>
