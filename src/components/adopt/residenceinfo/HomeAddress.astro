@@ -31,10 +31,12 @@ import InputDynamicLabel from '../../lib/InputDynamicLabel.astro';
   </div>
   <div class = "col-6">
     <InputDynamicLabel
-      inputType = "text"
+      inputType = "number"
       inputName = "applicant-zip-code"
       inputId = "applicant-zip-code"
       inputRequired = true
+      inputMin = "10000"
+      inputMax = "99999"
       labelText = "Zip Code"
     />
   </div>

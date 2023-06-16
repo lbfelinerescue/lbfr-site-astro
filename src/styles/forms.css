@@ -71,6 +71,16 @@ fieldset[required="true"]:valid > legend > span::after {
   color: #009000;
 }
 
+/* Remove arrows from input of type number */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* Legend formatting for fieldsets */
 legend {
   font-size: 0.8em;
