@@ -1,4 +1,5 @@
 from datetime import date
+from pprint import pprint
 import sys
 from typing import Dict
 
@@ -9,8 +10,21 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 
 
-def main() -> None:
+def main() -> int:
     args = sys.argv[1:]
+
+    if args[0] in ('-h', '--help'):
+        print('''
+Test Automation for LBFR Forms
+
+Usage:
+  python3 forms.py <form> ...
+
+Options:
+  -h --help     Show this screen.
+  <form>        Any combination of {contact, volunteer, foster, adopt}.
+        ''')
+        return 0
 
     forms = {
         'adopt': adopt,
@@ -28,6 +42,7 @@ def main() -> None:
 
     for arg in args:
         forms[arg](data=data)
+    return 0
 
 
 def contact(data: Dict) -> None:
