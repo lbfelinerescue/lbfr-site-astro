@@ -43,6 +43,11 @@ legend > :not(span.validity) {
     align-items: center
 }
 
+input + label,
+textarea + label {
+    padding-right: 2.5em;
+}
+
 .prel {
   position: relative;
 }
@@ -107,6 +112,10 @@ legend {
   transform: translate(0, -36%);
   padding-left: 4px;
   padding-right: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 4em);
 }
 
 .input-dynamic-label:focus ~ label {
@@ -133,6 +142,10 @@ legend {
   transform: translate(0, -36%);
   padding-left: 4px;
   padding-right: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 4em);
 }
 
 .textarea-dynamic-label:focus ~ label {
