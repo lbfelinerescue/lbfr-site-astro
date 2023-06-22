@@ -1,4 +1,4 @@
-// const PDFPrinter = require('pdfmake');
+const PDFPrinter = require('pdfmake');
 
 
 exports.handler = async function (event, context) {
