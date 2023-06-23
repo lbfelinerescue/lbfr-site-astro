@@ -15,4 +15,4 @@ function DefaultTemplate(data) {
     }
 }
 
-module.exports = ContactTemplate;
+module.exports = DefaultTemplate;
