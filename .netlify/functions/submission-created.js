@@ -27,7 +27,7 @@ exports.handler = async function (event, context) {
     },
     media: {
       mimeType: 'text/json',
-      body: JSON.stringify(event),
+      body: event.body,
     },
   })
 
