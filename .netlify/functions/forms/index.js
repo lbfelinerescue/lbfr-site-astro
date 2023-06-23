@@ -27,6 +27,11 @@ const fonts = {
     }
 };
 
+const FORM_TEMPLATES = {
+  'contact': require('./templates/contact.js'),
+  'volunteer': require('./templates/volunteer.js'),
+  'default': require('./templates/default.js'),
+};
 
 async function getPDF(Template, data) {
     const printer = new PDFPrinter(fonts);
@@ -50,13 +55,7 @@ async function getPDF(Template, data) {
 }
 
 async function getForm(formName, data) {
-    const allTemplates = {
-      'contact': require('./templates/contact.js'),
-      'volunteer': require('./templates/volunteer.js'),
-      'default': require('./templates/default.js'),
-    };
-
-    const Template = allTemplates[formName] || allTemplates['default'];
+    const Template = FORM_TEMPLATES[formName] || FORM_TEMPLATES['default'];
     return getPDF(Template, data);
 }
 
