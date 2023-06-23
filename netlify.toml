@@ -1,4 +1,4 @@
 [build]
-    command = "npm run build && rm *.json && rm -rf node_modules && cd .netlify/functions && npm install"
+    command = "npm run build && rm *.json && rm -rf node_modules && cd .netlify/functions/submission-created && npm install"
     functions = ".netlify/functions"
     publish = "dist/"
