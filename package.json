@@ -14,6 +14,9 @@
     "astro": "^2.3.2",
     "astro-netlify-cms": "^0.5.3",
     "sass": "^1.62.1",
-    "signature_pad": "^4.1.5"
+    "signature_pad": "^4.1.5",
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0",
+    "pdfmake": "^0.2.7"
   }
 }
