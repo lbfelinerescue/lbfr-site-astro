@@ -25,8 +25,20 @@ async function writeFileToDrive(drive, options) {
     return drive.files.create(options);
 }
 
+function getDestinationFolderID(formName) {
+  const folderMap = JSON.parse(process.env.GDRIVE_FOLDER_IDS);
+  const folderId = folderMap[formName];
+  
+  if (!folderMap[formName]) {
+    return folderMap['default'];
+  }
+
+  return folderId;
+}
+
 module.exports = {
     bufferToReadableStream,
     getDriveClient,
-    writeFileToDrive
+    writeFileToDrive,
+    getDestinationFolderID
 }

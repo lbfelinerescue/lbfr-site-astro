@@ -1,5 +1,5 @@
 const { getForm } = require('./forms/index.js');
-const { bufferToReadableStream, getDriveClient, writeFileToDrive } = require('./lib.js');
+const { bufferToReadableStream, getDriveClient, writeFileToDrive, getDestinationFolderID } = require('./lib.js');
 
 exports.handler = async function (event, context) {
   const formBody = JSON.parse(event.body);
@@ -20,9 +20,7 @@ exports.handler = async function (event, context) {
       name: `${formFileName}.json`,
       mimeType: 'text/json',
       parents: [
-        // Folder ID of the Google Drive Share
-        // https://drive.google.com/drive/folders/{FOLDER_ID}
-        process.env.GDRIVE_FOLDER_ID
+        getDestinationFolderID(formName)
       ],
     },
     media: {
@@ -36,9 +34,7 @@ exports.handler = async function (event, context) {
       name: `${formFileName}.pdf`,
       mimeType: 'application/pdf',
       parents: [
-        // Folder ID of the Google Drive Share
-        // https://drive.google.com/drive/folders/{FOLDER_ID}
-        process.env.GDRIVE_FOLDER_ID
+        getDestinationFolderID(formName)
       ],
     },
     media: {
