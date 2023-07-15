@@ -33,7 +33,6 @@
           src = ./.;
           nodejs = pkgs.nodejs;
           node_modules_mode = "copy";
-          shellHook = "rm -rf node_modules";
         };
 
         auto-forms = pkgs.mkShell {
