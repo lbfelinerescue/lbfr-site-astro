@@ -1,14 +1,5 @@
 const { getForm } = require('./forms/index.js');
-const { google } = require('googleapis');
-const { Readable } = require('stream');
-
-function bufferToReadableStream(buffer) {
-  const readable = new Readable()
-  readable._read = () => { } // _read is required but you can noop it
-  readable.push(buffer)
-  readable.push(null)
-  return readable;
-}
+const { bufferToReadableStream, getDriveClient, writeFileToDrive } = require('./lib.js');
 
 exports.handler = async function (event, context) {
   const formBody = JSON.parse(event.body);
@@ -18,22 +9,13 @@ exports.handler = async function (event, context) {
   const formName = payload.form_name;
   const formFileName = `form-submission-${formName}-${(new Date()).toString()}`;
 
-  const client = await google.auth.getClient({
-    credentials: JSON.parse(process.env.GDRIVE_CREDENTIALS),
-    scopes: 'https://www.googleapis.com/auth/drive.file',
-  })
-
-  const drive = google.drive({
-    version: 'v3',
-    auth: client,
-  })
-
   console.log(formName);
   console.log(formFileName);
   console.log(formBody);
 
+  const drive = await getDriveClient();
 
-  const jsonResult = await drive.files.create({
+  const jsonResult = await writeFileToDrive(drive, {
     requestBody: {
       name: `${formFileName}.json`,
       mimeType: 'text/json',
@@ -49,7 +31,7 @@ exports.handler = async function (event, context) {
     },
   });
 
-  const pdfResult = await drive.files.create({
+  const pdfResult = await writeFileToDrive(drive, {
     requestBody: {
       name: `${formFileName}.pdf`,
       mimeType: 'application/pdf',
