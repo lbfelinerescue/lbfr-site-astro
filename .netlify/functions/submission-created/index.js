@@ -1,5 +1,5 @@
 const { getForm } = require('./forms/index.js');
-const { bufferToReadableStream, getDriveClient, writeFileToDrive, getDestinationFolderID } = require('./lib.js');
+const { bufferToReadableStream, getDriveClient, writeFileToDrive, getDestinationFolderID } = require('./lib');
 
 exports.handler = async function (event, context) {
   const formBody = JSON.parse(event.body);
