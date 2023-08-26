@@ -1,5 +1,6 @@
 const { Readable } = require('stream');
 const { google } = require('googleapis');
+const { sendMail } = require('./mail');
 
 function bufferToReadableStream(buffer) {
   const readable = new Readable()
@@ -40,5 +41,6 @@ module.exports = {
     bufferToReadableStream,
     getDriveClient,
     writeFileToDrive,
-    getDestinationFolderID
+    getDestinationFolderID,
+    sendMail
 }
