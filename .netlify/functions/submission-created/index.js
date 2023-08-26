@@ -46,7 +46,7 @@ exports.handler = async function (event, context) {
 
   const sendMailResult = await sendMail({
     to: formData['contact-email'],
-    from: 'noreply@longbeachfelines.org', // Use the email address or domain you verified above
+    from: process.env.SENT_FROM_EMAIL,
     subject: `Submission for ${formName} from ${formData['contact-name']} `,
     text: `
     Hello ${formData['contact-name']},
