@@ -30,6 +30,8 @@ const fonts = {
 const FORM_TEMPLATES = {
   'contact': require('./templates/contact.js'),
   'volunteer': require('./templates/volunteer.js'),
+  'adoption': require('./templates/adoption.js'),
+  'foster': require('./templates/foster.js'),
   'default': require('./templates/default.js'),
 };
 
