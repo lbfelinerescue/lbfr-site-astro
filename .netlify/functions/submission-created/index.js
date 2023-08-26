@@ -1,5 +1,5 @@
 const { getForm } = require('./forms/index.js');
-const { bufferToReadableStream, getDriveClient, writeFileToDrive, getDestinationFolderID } = require('./lib');
+const { bufferToReadableStream, getDriveClient, writeFileToDrive, getDestinationFolderID, sendMail } = require('./lib');
 
 exports.handler = async function (event, context) {
   const formBody = JSON.parse(event.body);
@@ -29,6 +29,7 @@ exports.handler = async function (event, context) {
     },
   });
 
+  const pdfFile = await getForm(formName, formData);
   const pdfResult = await writeFileToDrive(drive, {
     requestBody: {
       name: `${formFileName}.pdf`,
@@ -39,13 +40,34 @@ exports.handler = async function (event, context) {
     },
     media: {
       mimeType: 'application/pdf',
-      body: bufferToReadableStream(await getForm(formName, formData)),
+      body: bufferToReadableStream(pdfFile),
     },
   });
 
+  const sendMailResult = await sendMail({
+    to: formData['contact-email'],
+    from: 'noreply@longbeachfelines.org', // Use the email address or domain you verified above
+    subject: `Submission for ${formName} from ${formData['contact-name']} `,
+    text: `
+    Hello ${formData['contact-name']},
+    
+    We have received your submission. We will follow up with you in 5 business days.`,
+    attachments: [
+      {
+        content: pdfFile.toString('base64'),
+        filename: 'submission.pdf',
+        type: 'application/pdf',
+        disposition: 'attachment'
+      }
+    ],
+  });
+  
   return {
     statusCode: 200,
-    body: JSON.stringify(event),
+    body: JSON.stringify({
+      event,
+      sendMailResult,
+    }),
     headers: {
       "content-type": "text/json"
     }
