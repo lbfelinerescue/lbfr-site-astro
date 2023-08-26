@@ -59,6 +59,8 @@ canvas#signature-pad {
         document.getElementById('hidden-signature').value = signaturePad.toDataURL();
     }
 
+    window.updateAdoptionSignatureValue = updateSignatureValue;
+
     document
     .getElementById('adoption-form')
     .addEventListener('submit', updateSignatureValue, true);
