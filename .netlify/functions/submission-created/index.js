@@ -50,14 +50,24 @@ exports.handler = async function (event, context) {
     'adoption': 'applicant-email',
     'foster': 'applicant-email',
   };
+
+  const contactNameKeys = {
+    'contact': 'contact-name',
+    'volunteer': 'applicant-name',
+    'adoption': 'applicant-name',
+    'foster': 'applicant-name',
+  };
+
+  const contactEmail = formData[contactEmailKeys[formName]] || formData['contact-email'] || formData['applicant-email'];
+  const contactName = formData[contactNameKeys[formName]] || formData['contact-name'] || formData['applicant-name'];
   const sendMailResult = await sendMail({
-    to: formData[contactEmailKeys[formName]] || formData['contact-email'] || formData['applicant-email'],
+    to: contactEmail,
     from: process.env.SENT_FROM_EMAIL,
-    subject: `Submission for ${formName} from ${formData['contact-name']} `,
+    subject: `Submission of ${formName} form for ${contactName} `,
     text: `
-    Hello ${formData['contact-name']},
+    Hello ${contactName},
     
-    We have received your submission. We will follow up with you in 5 business days.`,
+    We have received your submission. We will follow up with you within 5 business days.`,
     attachments: [
       {
         content: pdfFile.toString('base64'),
