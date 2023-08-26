@@ -1,10 +1,15 @@
 module.exports = function List ({ items }) {
+    let listData;
+    if ( typeof items === 'string') {
+      listData = [ items ];
+    } else {
+      listData = items;
+    }
     let listElem = {
-        ul: items.map(e => ({
+        ul: listData.map(e => ({
             text: e, indent: 30
         }))
     };
-    console.log(listElem);
 
     return { 
         layout: 'noBorders',

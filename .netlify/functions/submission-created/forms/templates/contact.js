@@ -1,14 +1,13 @@
 const { Heading, Paragraph, LineBreak } = require('../../components');
 
-function ContactTemplate(data) {
+function ContactTemplate(userData) {
     return {
         content: [
-            Heading({ kind: 'h1', text: `Contact Form Submission` }),
-            Heading({ kind: 'h2', text: `From: ${data['contact-name']}` }),
+            Heading({ kind: 'h2', text: `From: ${userData['contact-name']}` }),
             LineBreak(),
-            Heading({ kind: 'h2', text: `Email: ${data['contact-email']}` }),
+            Heading({ kind: 'h2', text: `Email: ${userData['contact-email']}` }),
             LineBreak(),
-            Paragraph({ text: data['contact-message'] }),
+            Paragraph({ text: `${userData['contact-message']}` }),
         ],
 
         defaultStyle: {

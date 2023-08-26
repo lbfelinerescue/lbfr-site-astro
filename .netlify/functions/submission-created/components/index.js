@@ -5,4 +5,5 @@ module.exports = {
     DataTable: require('./DataTable'),
     List: require('./List'),
     Image: require('./Image'),
+    HorizontalRule: require('./HorizontalRule'),
 }
