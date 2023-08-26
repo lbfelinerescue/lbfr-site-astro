@@ -382,9 +382,9 @@ function VolunteerTemplate(userData) {
             LineBreak(),
             Paragraph({ text: userData['signature-date'] }),
             LineBreak(),
-            //Image({
-            //    data: userData['signature']
-            //}), 
+            Image({
+               data: userData['signature']
+            }), 
         ],
 
         defaultStyle: {
