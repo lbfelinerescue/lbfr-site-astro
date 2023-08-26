@@ -44,8 +44,14 @@ exports.handler = async function (event, context) {
     },
   });
 
+  const contactEmailKeys = {
+    'contact': 'contact-email',
+    'volunteer': 'applicant-email',
+    'adoption': 'applicant-email',
+    'foster': 'applicant-email',
+  };
   const sendMailResult = await sendMail({
-    to: formData['contact-email'],
+    to: formData[contactEmailKeys[formName]] || formData['contact-email'] || formData['applicant-email'],
     from: process.env.SENT_FROM_EMAIL,
     subject: `Submission for ${formName} from ${formData['contact-name']} `,
     text: `
@@ -60,6 +66,10 @@ exports.handler = async function (event, context) {
         disposition: 'attachment'
       }
     ],
+  }).then( (success) => {
+    return success;
+   }, (error) => {
+    return error;
   });
   
   return {
