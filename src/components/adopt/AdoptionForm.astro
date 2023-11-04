@@ -43,6 +43,7 @@ import Signature from './Signature.astro';
         $event.preventDefault();
         handleExtraAnimal($event, "cat");
         handleExtraAnimal($event, "dog");
+        window.updateAdoptionSignatureValue();
         $event.currentTarget.submit();
     }
 

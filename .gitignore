@@ -151,3 +151,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+.netlify/functions-serve
+.netlify/state.json
