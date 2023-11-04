@@ -4,9 +4,11 @@ import NetlifyCMS from 'astro-netlify-cms';
 
 import sitemap from "@astrojs/sitemap";
 
+const SITE_URL = 'https://www.longbeachfelines.org';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.longbeachfelines.org',
+  site: SITE_URL,
   integrations: [NetlifyCMS({
     config: {
       media_folder: "public/images",
@@ -77,5 +79,7 @@ export default defineConfig({
         }]
       }]
     }
-  }), mdx(), sitemap()]
+  }), mdx(), sitemap({
+    filter: (page) => page !== `{SITE_URL}/admin`,
+  })]
 });
