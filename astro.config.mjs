@@ -80,6 +80,6 @@ export default defineConfig({
       }]
     }
   }), mdx(), sitemap({
-    filter: (page) => page !== `{SITE_URL}/admin`,
+    filter: (page) => page !== `{SITE_URL}/admin/`,
   })]
 });
